@@ -41,6 +41,17 @@ a{color:#26282B}a:hover{color:#111214}
 .tag{display:inline-flex;align-items:center;font-size:12px;font-weight:600;border-radius:999px;padding:5px 12px;background:#F0F0EF;color:#26282B}
 .lab{font-size:13px;color:#5F6266;font-weight:600}
 .r-show-m{display:none !important}
+.r-pad{max-width:1440px;margin:0 auto;box-sizing:border-box}
+.s .r-grid{grid-template-columns:minmax(0,1fr) 320px !important;gap:28px !important}
+.s .r-leg{grid-template-columns:minmax(0,1fr) minmax(56px,1fr) minmax(0,1fr) !important}
+.s .r-leg-sum{grid-column:1/-1;align-items:flex-start !important}
+.s .r-leg-sum span{text-align:left !important}
+.s .r-hero-facts{grid-template-columns:repeat(2,minmax(0,1fr)) !important;gap:12px 24px !important}
+.s .r-header,.s .r-nav,.s .r-snapwrap{padding-left:24px !important;padding-right:24px !important}
+.s .r-hero-body{left:24px !important;right:24px !important}
+.s .r-pad{padding-left:24px !important;padding-right:24px !important}
+.t .r-hero-row{flex-wrap:wrap}
+
 .t .r-grid{grid-template-columns:minmax(0,1fr) !important}
 .t .r-aside{position:static !important}
 .t .r-hero-title{font-size:48px !important}
@@ -49,14 +60,16 @@ a{color:#26282B}a:hover{color:#111214}
 .m .r-header{display:flex !important;justify-content:space-between;padding:12px 16px !important}
 .m .r-nav{padding:12px 16px !important;overflow-x:auto}
 .m .r-pad{padding:16px 16px 120px !important;gap:20px !important}
-.m .r-hero{height:560px !important;border-radius:20px !important}
+.m .r-hero{height:560px !important;border-radius:0 0 20px 20px !important}
+.m .r-snapwrap{padding:16px 16px 0 !important}
+.m .r-nav{margin-top:16px !important;justify-content:flex-start !important}
 .m .r-hero-top{left:16px !important;right:16px !important;top:16px !important}
 .m .r-hero-body{left:20px !important;right:20px !important;bottom:20px !important;gap:16px !important}
 .m .r-hero-row{flex-direction:column !important;align-items:flex-start !important;gap:14px !important}
 .m .r-hero-row>div:last-child{align-items:flex-start !important;text-align:left !important}
 .m .r-hero-title{font-size:36px !important}
 .m .r-hero-facts{grid-template-columns:repeat(2,minmax(0,1fr)) !important;gap:12px !important}
-.m .r-snap{overflow-x:auto;padding:20px 16px !important}
+.m .r-snap{overflow-x:auto;padding:18px 16px !important}
 .m .r-snap-row{min-width:760px}
 .m .r-wrap{flex-wrap:wrap}
 .m .r-leg{grid-template-columns:minmax(0,1fr) minmax(56px,1fr) minmax(0,1fr) !important;gap:10px !important}
@@ -76,19 +89,38 @@ a{color:#26282B}a:hover{color:#111214}
 .m .r-cmp4{grid-template-columns:repeat(2,minmax(0,1fr)) !important;gap:8px !important}
 .m .r-sub{width:100% !important}
 .m .r-drawer{width:100% !important}
+.t .r-snap{overflow-x:auto}
+.t .r-snap-row{min-width:780px}
+.t .r-drawer{width:min(640px,100%) !important}
+.t .r-hero{height:560px !important}
+.s .r-hero-title{font-size:50px !important}
+.m .r-hero-title{font-size:34px !important}
+.m .r-hero{height:600px !important}
+.m .r-hero-body{left:16px !important;right:16px !important}
+.m .r-hero-arrow{top:24px !important;width:40px !important;height:40px !important}
+.m .r-nav>div>span:nth-child(2){font-size:13px !important}
+.m .r-dpad{padding-left:16px !important;padding-right:16px !important}
+.m .r-dhotel-row{grid-template-columns:minmax(0,1fr) !important}
+.m .r-act-img{width:100% !important;height:140px !important}
+.m .r-legend>div{grid-template-columns:minmax(0,1fr) !important;gap:4px !important}
+.m .r-toolbar{flex-direction:column;align-items:flex-start !important}
+.m .r-filters{flex-wrap:wrap;overflow-x:auto;max-width:100%}
+.m .r-cmphead{display:none !important}
+.m .r-cmp4 span[style*="text-align: right"]{text-align:left !important}
+.m .r-subcard>div{flex-wrap:wrap}
+.m .r-sub h1{font-size:34px !important}
 
 </style>
 </helmet>
-<div class="{{rootClass}}" style="width: {{frameW}}px; height: {{frameH}}px; position: relative; overflow: hidden; background: #F4F4F3">
+<div class="{{rootClass}}" style="width: {{rootW}}; height: {{rootH}}; position: relative; overflow: hidden; background: #F4F4F3">
 <div ref="{{scrollRef}}" style="position: absolute; inset: 0; overflow-y: auto">
 
-<header class="r-header" style="display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; padding: 16px 48px; background: #FFFFFF; border-bottom: 1px solid #E4E4E2">
+<header class="r-header" style="display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; padding: 14px 48px; background: #FFFFFF">
 <div style="display: flex; align-items: center; gap: 10px">
 <svg width="30" height="30" viewBox="0 0 32 32" fill="none" stroke="#26282B" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 22c4-8 8-8 12 0s8 8 12 0"></path><path d="M4 14c4-8 8-8 12 0s8 8 12 0"></path></svg>
 <span style="font-family: 'Instrument Serif', Georgia, serif; font-size: 22px; font-weight: 600; color: #26282B">monsoon trails</span>
 </div>
 <div class="r-hide-m" style="display: flex; align-items: center; gap: 10px; padding: 8px 18px; border-radius: 999px; border: 1px solid #E4E4E2; font-size: 14px; color: #3E4145">
-<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#26282B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h9l4 4v14H6z"></path><path d="M14 3v5h5"></path></svg>
 <span>Your trip plan from <strong style="color: #1E1F21">Priya</strong></span>
 <span style="color: #CFCFCD">|</span>
 <span>{{validLabel}} <strong style="color: {{validColor}}">Tue 6 Oct</strong></span>
@@ -102,48 +134,16 @@ a{color:#26282B}a:hover{color:#111214}
 </div>
 </header>
 
-<nav class="r-nav" aria-label="Progress" style="display: flex; gap: 8px; padding: 14px 48px; border-bottom: 1px solid #E4E4E2; background: #FAFAF9">
-<sc-for list="{{steps}}" as="stp" hint-placeholder-count="3">
-<div style="display: flex; align-items: center; gap: 10px; padding-right: 20px">
-<span style="{{stp.circleStyle}}">{{stp.num}}</span>
-<span style="{{stp.labelStyle}}">{{stp.label}}</span>
-<sc-if value="{{stp.notLast}}" hint-placeholder-val="{{ true }}">
-<span style="width: 40px; height: 1px; background: #CFCFCD; margin-left: 10px"></span>
-</sc-if>
-</div>
-</sc-for>
-</nav>
-
-<sc-if value="{{isWorkspace}}" hint-placeholder-val="{{ true }}">
-<div class="r-pad" style="padding: 32px 48px 80px; display: flex; flex-direction: column; gap: 28px">
-
-<sc-if value="{{expired}}" hint-placeholder-val="{{ false }}">
-<div role="status" style="display: flex; flex-wrap: wrap; align-items: center; gap: 16px; padding: 16px 20px; border-radius: 12px; background: #FBE4E1; color: #7C1A12">
-<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg>
-<div style="flex-grow: 1; display: flex; flex-direction: column; gap: 2px">
-<strong style="font-size: 15px">This quotation expired on Tue 6 Oct.</strong>
-<span style="font-size: 14px">Hotel and activity prices may have changed, so it can no longer be customized. Ask Priya for an updated quotation.</span>
-</div>
-<button class="btn" type="button">Request updated quotation</button>
-</div>
-</sc-if>
-
-<section class="r-hero" aria-label="Trip overview" style="position: relative; height: 560px; border-radius: 24px; overflow: hidden; background: #26282B">
+<section class="r-hero" aria-label="Trip overview" style="position: relative; height: 600px; border-radius: 0 0 28px 28px; overflow: hidden; background: #26282B">
 <img src="{{hero.src}}" alt="{{hero.alt}}" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block">
 <div style="position: absolute; inset: 0; background: {{hero.scrim}}"></div>
-<div class="r-hero-top" style="position: absolute; top: 24px; left: 40px; right: 40px; display: flex; justify-content: space-between; align-items: center; color: {{hero.ink}}">
-<div style="display: flex; gap: 8px; flex-wrap: wrap">
-<sc-for list="{{heroTags}}" as="tg" hint-placeholder-count="4"><span style="{{hero.chipStyle}}">{{tg}}</span></sc-for>
-</div>
-<span style="{{hero.chipStyle}}">{{hero.counter}}</span>
-</div>
-<button type="button" onClick="{{heroPrev}}" aria-label="Previous photo" style="{{hero.arrowStyle}}; left: 24px"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 6-6 6 6 6"></path></svg></button>
-<button type="button" onClick="{{heroNext}}" aria-label="Next photo" style="{{hero.arrowStyle}}; right: 24px"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 6 6 6-6 6"></path></svg></button>
-<div class="r-hero-body" style="position: absolute; left: 40px; right: 40px; bottom: 32px; display: flex; flex-direction: column; gap: 22px; color: {{hero.ink}}">
+<button type="button" onClick="{{heroPrev}}" aria-label="Previous photo" class="r-hero-arrow" style="{{hero.arrowStyle}}; left: 20px"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 6-6 6 6 6"></path></svg></button>
+<button type="button" onClick="{{heroNext}}" aria-label="Next photo" class="r-hero-arrow" style="{{hero.arrowStyle}}; right: 20px"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 6 6 6-6 6"></path></svg></button>
+<div class="r-hero-body" style="position: absolute; left: 48px; right: 48px; bottom: 32px; display: flex; flex-direction: column; gap: 22px; color: {{hero.ink}}">
 <div class="r-hero-row" style="display: flex; justify-content: space-between; align-items: flex-end; gap: 32px">
 <div style="display: flex; flex-direction: column; gap: 8px">
-<span style="font-size: 15px; font-weight: 600; opacity: .9">Your 6-day escape to Kerala</span>
-<h1 class="r-hero-title" style="margin: 0; font-family: 'Instrument Serif', Georgia, serif; font-weight: 400; font-size: 64px; line-height: 1; letter-spacing: -0.01em">Kerala: coast, tea hills &amp; backwaters</h1>
+<span style="font-size: 15px; font-weight: 600">Your 6-day escape to Kerala</span>
+<h1 class="r-hero-title" style="margin: 0; font-family: 'Instrument Serif', Georgia, serif; font-weight: 400; font-size: 58px; line-height: 1.02; letter-spacing: -0.01em; max-width: 620px">Kerala: coast, tea hills &amp; backwaters</h1>
 <span style="font-size: 15px; opacity: .85">Prepared for Ananya &amp; Rohan by Priya Nair · Sent Mon 28 Sep</span>
 </div>
 <div style="display: flex; flex-direction: column; align-items: flex-end; gap: 2px; text-align: right; flex-shrink: 0">
@@ -161,6 +161,64 @@ a{color:#26282B}a:hover{color:#111214}
 </div>
 </section>
 
+<div class="r-snapwrap" style="max-width: 1440px; margin: 0 auto; box-sizing: border-box; padding: 40px 48px 0">
+<section class="r-snap" aria-label="Your journey at a glance" style="padding: 24px 28px 22px; border-radius: 24px; background: #FFFFFF">
+<div class="r-snap-row" style="display: flex; align-items: flex-start">
+<sc-for list="{{snap}}" as="sn" hint-placeholder-count="9">
+<sc-if value="{{sn.isEnd}}" hint-placeholder-val="{{ false }}">
+<div style="flex-shrink: 0; display: flex; flex-direction: column; align-items: center; gap: 6px; padding: 0 8px">
+<div style="height: 30px; display: flex; align-items: center"><span style="width: 11px; height: 11px; border-radius: 50%; border: 1.5px solid #1E1F21; background: #FFFFFF; box-sizing: border-box"></span></div>
+<span style="font-size: 14px; font-weight: 600">{{sn.label}}</span>
+<span style="font-size: 12px; color: #5F6266">{{sn.sub}}</span>
+</div>
+</sc-if>
+<sc-if value="{{sn.isMove}}" hint-placeholder-val="{{ true }}">
+<div style="flex-grow: 1; flex-basis: 0; min-width: 0; display: flex; flex-direction: column; align-items: center; gap: 6px">
+<div style="position: relative; width: 100%; height: 30px; display: flex; align-items: center; justify-content: center">
+<span style="position: absolute; left: 10px; right: 10px; top: 15px; border-top: 1px solid #B5B7BA"></span>
+<span style="position: relative; padding: 4px 10px; border-radius: 999px; background: #F0F0EF; color: #1E1F21; font-size: 12px; font-weight: 600; white-space: nowrap">{{sn.label}}</span>
+</div>
+<span style="font-size: 12px; color: #5F6266; text-align: center">{{sn.sub}}</span>
+</div>
+</sc-if>
+<sc-if value="{{sn.isCity}}" hint-placeholder-val="{{ true }}">
+<a class="snap" href="{{sn.href}}" style="flex-shrink: 0; display: flex; flex-direction: column; align-items: center; gap: 4px; padding: 0 12px; text-align: center">
+<span style="font-family: 'Instrument Serif', Georgia, serif; font-size: 30px; line-height: 30px">{{sn.city}}</span>
+<span style="font-size: 13px; color: #3E4145">{{sn.dates}}</span>
+<sc-if value="{{sn.hasChip}}" hint-placeholder-val="{{ false }}"><span style="margin-top: 2px; font-size: 12px; font-weight: 600; padding: 3px 10px; border-radius: 999px; background: #26282B; color: #FFFFFF">{{sn.chip}}</span></sc-if>
+</a>
+</sc-if>
+</sc-for>
+</div>
+</section>
+</div>
+
+<nav class="r-nav" aria-label="Progress" style="margin-top: 40px; display: flex; justify-content: center; align-items: center; padding: 13px 48px; background: #1E1F21">
+<sc-for list="{{steps}}" as="stp" hint-placeholder-count="3">
+<div style="display: flex; align-items: center; gap: 10px; flex-shrink: 0">
+<span style="{{stp.circleStyle}}">{{stp.num}}</span>
+<span style="{{stp.labelStyle}}">{{stp.label}}</span>
+<sc-if value="{{stp.notLast}}" hint-placeholder-val="{{ true }}">
+<span style="width: 40px; height: 1px; background: #6B6E72; margin: 0 14px 0 4px"></span>
+</sc-if>
+</div>
+</sc-for>
+</nav>
+
+<sc-if value="{{isWorkspace}}" hint-placeholder-val="{{ true }}">
+<div class="r-pad" style="padding: 48px 48px 80px; display: flex; flex-direction: column; gap: 28px">
+
+<sc-if value="{{expired}}" hint-placeholder-val="{{ false }}">
+<div role="status" style="display: flex; flex-wrap: wrap; align-items: center; gap: 16px; padding: 16px 20px; border-radius: 12px; background: #FBE4E1; color: #7C1A12">
+<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg>
+<div style="flex-grow: 1; display: flex; flex-direction: column; gap: 2px">
+<strong style="font-size: 15px">This quotation expired on Tue 6 Oct.</strong>
+<span style="font-size: 14px">Hotel and activity prices may have changed, so it can no longer be customized. Ask Priya for an updated quotation.</span>
+</div>
+<button class="btn" type="button">Request updated quotation</button>
+</div>
+</sc-if>
+
 <sc-if value="{{isReview}}" hint-placeholder-val="{{ false }}">
 <div style="display: flex; justify-content: space-between; align-items: flex-end; gap: 24px">
 <div style="display: flex; flex-direction: column; gap: 8px">
@@ -171,77 +229,30 @@ a{color:#26282B}a:hover{color:#111214}
 </div>
 </sc-if>
 
-<sc-if value="{{isItinerary}}" hint-placeholder-val="{{ true }}">
-<section class="r-snap" aria-label="Your journey at a glance" style="display: flex; flex-direction: column; gap: 22px; padding: 26px 32px 28px; border-radius: 24px; background: #FFFFFF">
-<div style="display: flex; justify-content: space-between; align-items: baseline; gap: 16px">
-<span style="font-size: 18px; font-weight: 700">Your journey at a glance</span>
-<span style="font-size: 14px; color: #5F6266">10–15 Nov · 3 places · 5 nights</span>
-</div>
-<div class="r-snap-row" style="display: flex; align-items: flex-start">
-<sc-for list="{{snap}}" as="sn" hint-placeholder-count="9">
-<sc-if value="{{sn.isEnd}}" hint-placeholder-val="{{ false }}">
-<div style="flex-shrink: 0; display: flex; flex-direction: column; align-items: center; gap: 8px; padding: 0 4px">
-<div style="height: 28px; display: flex; align-items: center"><span style="width: 12px; height: 12px; border-radius: 50%; border: 2px solid #26282B; background: #FFFFFF; box-sizing: border-box"></span></div>
-<span style="font-size: 14px; font-weight: 600">{{sn.label}}</span>
-<span style="font-size: 12px; color: #5F6266">{{sn.sub}}</span>
-</div>
-</sc-if>
-<sc-if value="{{sn.isMove}}" hint-placeholder-val="{{ true }}">
-<div style="flex-grow: 1; flex-basis: 0; min-width: 0; display: flex; flex-direction: column; align-items: center; gap: 8px">
-<div style="position: relative; width: 100%; height: 28px; display: flex; align-items: center; justify-content: center">
-<span style="position: absolute; left: 0; right: 0; top: 13px; border-top: 2px dashed #B5B7BA"></span>
-<span style="position: relative; display: inline-flex; align-items: center; gap: 4px; padding: 5px 10px; border-radius: 999px; background: #F4F4F3; color: #26282B">
-<sc-for list="{{sn.modes}}" as="m" hint-placeholder-count="1">
-<sc-if value="{{m.isFlight}}" hint-placeholder-val="{{ false }}"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M21 16v-2l-8-5V3.5a1.5 1.5 0 0 0-3 0V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5z"></path></svg></sc-if>
-<sc-if value="{{m.isTrain}}" hint-placeholder-val="{{ false }}"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="3" width="14" height="14" rx="3"></rect><path d="M5 11h14"></path><path d="M8 21l2-4"></path><path d="M16 21l-2-4"></path></svg></sc-if>
-<sc-if value="{{m.isCar}}" hint-placeholder-val="{{ true }}"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 17h14v-5l-2-5H7l-2 5z"></path><path d="M5 12h14"></path><circle cx="8" cy="17" r="1.5"></circle><circle cx="16" cy="17" r="1.5"></circle></svg></sc-if>
-<sc-if value="{{m.isBoat}}" hint-placeholder-val="{{ false }}"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 17h20l-3 4H5z"></path><path d="M5 17v-6h14v6"></path><path d="M9 11V7h6v4"></path></svg></sc-if>
-</sc-for>
-</span>
-</div>
-<span style="font-size: 12px; color: #5F6266; text-align: center">{{sn.label}}</span>
-</div>
-</sc-if>
-<sc-if value="{{sn.isCity}}" hint-placeholder-val="{{ true }}">
-<a class="snap" href="{{sn.href}}" style="flex-shrink: 0; display: flex; flex-direction: column; align-items: center; gap: 4px; padding: 0 10px; text-align: center">
-<div style="height: 28px; display: flex; align-items: center"><span style="width: 18px; height: 18px; border-radius: 50%; background: #26282B; box-shadow: 0 0 0 5px #EBEBEA"></span></div>
-<span style="font-family: 'Instrument Serif', Georgia, serif; font-size: 28px; line-height: 1.1; padding-top: 4px">{{sn.city}}</span>
-<span style="font-size: 13px; color: #3E4145">{{sn.dates}} · {{sn.nights}}</span>
-<sc-if value="{{sn.hasChip}}" hint-placeholder-val="{{ false }}"><span style="margin-top: 4px; font-size: 12px; font-weight: 600; padding: 3px 10px; border-radius: 999px; background: #26282B; color: #FFFFFF">{{sn.chip}}</span></sc-if>
-</a>
-</sc-if>
-</sc-for>
-</div>
-</section>
-</sc-if>
-
-<div class="r-grid" style="display: grid; grid-template-columns: {{gridCols}}; gap: 40px; align-items: start">
+<div class="{{gridClass}}" style="display: grid; grid-template-columns: {{gridCols}}; gap: 32px; align-items: start">
 <main style="display: flex; flex-direction: column; gap: 20px">
 
 <sc-if value="{{isItinerary}}" hint-placeholder-val="{{ true }}">
-<div style="display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap">
+<div class="r-toolbar" style="display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap">
 <div role="group" aria-label="View" style="display: inline-flex; padding: 4px; border-radius: 999px; background: #EBEBEA">
 <sc-for list="{{viewOpts}}" as="v" hint-placeholder-count="2">
 <button class="seg" type="button" aria-pressed="{{v.pressed}}" onClick="{{v.pick}}" style="{{v.style}}">{{v.label}}</button>
 </sc-for>
 </div>
-<div role="group" aria-label="Filter by type" style="display: flex; gap: 8px; align-items: center">
+<sc-if value="{{showCompare}}" hint-placeholder-val="{{ false }}"><span style="font-size: 13px; color: #5F6266">Original quotation v1 vs. your revised version</span></sc-if>
+<sc-if value="{{showEdit}}" hint-placeholder-val="{{ true }}">
+<div class="r-filters" role="group" aria-label="Filter by type" style="display: flex; gap: 8px; align-items: center">
 <span style="font-size: 13px; color: #5F6266; padding-right: 4px">Show</span>
 <sc-for list="{{filters}}" as="fl" hint-placeholder-count="4">
 <button class="chip" type="button" aria-pressed="{{fl.pressed}}" onClick="{{fl.pick}}" style="{{fl.style}}">{{fl.label}}<sc-if value="{{fl.hasCount}}" hint-placeholder-val="{{ false }}"><span style="{{fl.countStyle}}">{{fl.countText}}</span></sc-if></button>
 </sc-for>
 </div>
+</sc-if>
 </div>
 
 </sc-if>
 
-<sc-if value="{{showEdit}}" hint-placeholder-val="{{ true }}">
-<div role="note" aria-label="Price labels" style="display: flex; gap: 28px; flex-wrap: wrap; align-items: center; padding: 14px 20px; border-radius: 16px; background: #FFFFFF; border: 1px solid #E4E4E2; font-size: 13px; color: #3E4145">
-<span style="display: inline-flex; align-items: center; gap: 8px"><span class="bdg b-g">Locked price</span>Swap freely, this price is held for you</span>
-<span style="display: inline-flex; align-items: center; gap: 8px"><span class="bdg b-a">Priya will confirm</span>Depends on availability, so the price may shift slightly</span>
-<span style="display: inline-flex; align-items: center; gap: 8px"><span class="bdg b-n">Included</span>Flights and transfers are booked as planned; leave a note if you need something</span>
-</div>
-</sc-if>
+
 
 <sc-if value="{{isReview}}" hint-placeholder-val="{{ false }}">
 <div style="border-radius: 20px; background: #FFFFFF; border: 1px solid #E4E4E2; overflow: hidden">
@@ -326,14 +337,14 @@ a{color:#26282B}a:hover{color:#111214}
 </sc-if>
 
 <sc-if value="{{showCompare}}" hint-placeholder-val="{{ false }}">
-<div style="display: grid; grid-template-columns: 150px minmax(0, 1fr) minmax(0, 1fr) 110px; gap: 16px; padding: 0 20px" class="lab r-cmp4">
+<div style="display: grid; grid-template-columns: 150px minmax(0, 1fr) minmax(0, 1fr) 110px; gap: 16px; padding: 0 20px" class="lab r-cmp4 r-cmphead">
 <span></span><span>Original · v1</span><span>Revised</span><span style="text-align: right">Difference</span>
 </div>
 <sc-for list="{{cmpSegs}}" as="seg" hint-placeholder-count="5">
 <section id="{{seg.anchor}}" style="border-radius: 16px; background: #FFFFFF; border: 1px solid #E4E4E2; overflow: hidden">
 <div style="{{seg.cmpHeadStyle}}">
 <div style="display: flex; flex-direction: column; gap: 2px">
-<span style="font-size: 12px; color: #5F6266; font-weight: 600">{{seg.overline}}</span>
+<span style="font-size: 12px; color: #5F6266; font-weight: 600">{{seg.cmpOverline}}</span>
 <span style="{{seg.cmpTitleStyle}}">{{seg.title}}</span>
 </div>
 <span style="font-size: 14px; color: #3E4145">{{seg.dateLine}}</span>
@@ -357,7 +368,7 @@ a{color:#26282B}a:hover{color:#111214}
 <sc-for list="{{segs}}" as="seg" hint-placeholder-count="7">
 
 <sc-if value="{{seg.isMove}}" hint-placeholder-val="{{ true }}">
-<section id="{{seg.anchor}}" style="display: flex; flex-direction: column; gap: 10px; padding: 14px 16px 16px; border-radius: 24px; background: #EBEBEA">
+<section id="{{seg.anchor}}" style="display: flex; flex-direction: column; gap: 8px; padding: 12px 14px 14px; border-radius: 20px; background: #EFEFEE; border: 1px solid #6B6E72">
 <div class="r-wrap" style="display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 0 4px">
 <div style="display: flex; align-items: baseline; gap: 10px">
 <h2 style="margin: 0; font-size: 16px; font-weight: 700">{{seg.title}}</h2>
@@ -366,7 +377,7 @@ a{color:#26282B}a:hover{color:#111214}
 <span style="font-size: 13px; color: #3E4145">{{seg.dateLine}} · Included in your trip</span>
 </div>
 <sc-for list="{{seg.legs}}" as="l" hint-placeholder-count="2">
-<div style="display: flex; flex-direction: column; gap: 8px; padding: 12px 18px; border-radius: 18px; background: #FFFFFF">
+<div style="display: flex; flex-direction: column; gap: 8px; padding: 12px 18px; border-radius: 14px; background: #FFFFFF">
 <div class="r-leg" style="display: grid; grid-template-columns: 140px minmax(0, 1fr) 140px 210px; align-items: center; gap: 16px">
 <div style="display: flex; flex-direction: column; gap: 1px; min-width: 0">
 <span style="font-size: 20px; font-weight: 800; letter-spacing: -0.02em; line-height: 1.1">{{l.fromCode}}</span>
@@ -374,14 +385,9 @@ a{color:#26282B}a:hover{color:#111214}
 </div>
 <div style="display: flex; align-items: center; min-width: 0">
 <span style="width: 6px; height: 6px; border-radius: 50%; background: #26282B; flex-shrink: 0"></span>
-<span style="flex-grow: 1; height: 0; border-top: 1.5px dashed #B5B7BA"></span>
-<span style="display: inline-flex; align-items: center; gap: 6px; padding: 4px 10px; border-radius: 999px; background: #F4F4F3; font-size: 12px; font-weight: 700; white-space: nowrap">
-<sc-if value="{{l.isFlight}}" hint-placeholder-val="{{ false }}"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M21 16v-2l-8-5V3.5a1.5 1.5 0 0 0-3 0V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5z"></path></svg></sc-if>
-<sc-if value="{{l.isTrain}}" hint-placeholder-val="{{ false }}"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="3" width="14" height="14" rx="3"></rect><path d="M5 11h14"></path><path d="M8 21l2-4"></path><path d="M16 21l-2-4"></path></svg></sc-if>
-<sc-if value="{{l.isCar}}" hint-placeholder-val="{{ true }}"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 17h14v-5l-2-5H7l-2 5z"></path><path d="M5 12h14"></path><circle cx="8" cy="17" r="1.5"></circle><circle cx="16" cy="17" r="1.5"></circle></svg></sc-if>
-<sc-if value="{{l.isBoat}}" hint-placeholder-val="{{ false }}"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 17h20l-3 4H5z"></path><path d="M5 17v-6h14v6"></path><path d="M9 11V7h6v4"></path></svg></sc-if>
-{{l.duration}}</span>
-<span style="flex-grow: 1; height: 0; border-top: 1.5px dashed #B5B7BA"></span>
+<span style="flex-grow: 1; height: 0; border-top: 1px solid #9A9DA1"></span>
+<span style="padding: 4px 10px; border-radius: 999px; background: #F0F0EF; font-size: 12px; font-weight: 600; white-space: nowrap">{{l.modeLabel}} · {{l.duration}}</span>
+<span style="flex-grow: 1; height: 0; border-top: 1px solid #9A9DA1"></span>
 <span style="width: 6px; height: 6px; border-radius: 50%; background: #26282B; flex-shrink: 0"></span>
 </div>
 <div style="display: flex; flex-direction: column; align-items: flex-end; gap: 1px; min-width: 0; text-align: right">
@@ -443,13 +449,13 @@ a{color:#26282B}a:hover{color:#111214}
 <div style="display: flex; justify-content: space-between; align-items: center; gap: 12px">
 <span class="lab">{{seg.stayHeading}}</span>
 <div style="display: flex; align-items: center; gap: 4px">
-<sc-if value="{{seg.canSplit}}" hint-placeholder-val="{{ false }}"><button class="lnk" type="button" onClick="{{seg.split}}" disabled="{{locked}}">Split stay</button></sc-if>
+<sc-if value="{{seg.canSplit}}" hint-placeholder-val="{{ false }}"><button class="lnk" type="button" onClick="{{seg.split}}" disabled="{{locked}}" style="text-decoration: none; padding-right: 0">Split stay</button></sc-if>
 <sc-if value="{{seg.isSplit}}" hint-placeholder-val="{{ false }}"><button class="lnk" type="button" onClick="{{seg.unsplit}}" disabled="{{locked}}">Stay in one {{seg.kindLower}}</button></sc-if>
 </div>
 </div>
 <sc-for list="{{seg.parts}}" as="p" hint-placeholder-count="1">
 <div class="r-part" style="{{p.cardStyle}}">
-<img class="r-part-img" src="{{p.img}}" alt="{{p.imgAlt}}" style="width: 150px; height: 112px; object-fit: cover; border-radius: 12px; display: block; flex-shrink: 0">
+<img class="r-part-img" src="{{p.img}}" alt="{{p.imgAlt}}" style="width: 168px; height: 124px; object-fit: cover; border-radius: 12px; display: block; flex-shrink: 0; background: #E4E4E2">
 <div style="flex-grow: 1; min-width: 0; display: flex; flex-direction: column; gap: 10px">
 <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 12px">
 <div style="display: flex; flex-direction: column; gap: 2px; min-width: 0">
@@ -492,7 +498,7 @@ a{color:#26282B}a:hover{color:#111214}
 <span style="font-size: 16px; font-weight: 600">{{day.title}}</span>
 <sc-for list="{{day.acts}}" as="a" hint-placeholder-count="1">
 <div class="r-act" style="{{a.rowStyle}}">
-<span style="width: 32px; height: 32px; flex-shrink: 0; border-radius: 8px; background: #F0F0EF; color: #3A3C40; display: flex; align-items: center; justify-content: center"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7h18v3a2 2 0 0 0 0 4v3H3v-3a2 2 0 0 0 0-4z"></path></svg></span>
+<img class="r-act-img" src="{{a.img}}" alt="{{a.imgAlt}}" style="{{a.imgStyle}}">
 <div style="flex-grow: 1; display: flex; flex-direction: column; gap: 2px">
 <span style="font-size: 12px; color: #5F6266; font-weight: 600">Activity · {{a.time}}</span>
 <span style="{{a.nameStyle}}">{{a.name}}</span>
@@ -540,9 +546,14 @@ Add an activity · {{day.addLabel}}</button>
 </sc-if>
 </main>
 
-<sc-if value="{{isItinerary}}" hint-placeholder-val="{{ true }}">
+<sc-if value="{{showAside}}" hint-placeholder-val="{{ true }}">
 <aside class="r-aside" aria-label="Price summary" style="position: sticky; top: 24px; display: flex; flex-direction: column; gap: 16px">
-<div style="display: flex; flex-direction: column; padding: 24px; border-radius: 20px; background: #FFFFFF; border: 1px solid #E4E4E2; box-shadow: 0 8px 30px rgba(30, 31, 33, 0.06)">
+<div class="r-legend" role="note" aria-label="Price labels" style="display: flex; flex-direction: column; gap: 14px; padding: 18px 20px; border-radius: 20px; background: #FFFFFF; border: 1px solid #E4E4E2; font-size: 13px; color: #3E4145; line-height: 1.4">
+<div style="display: grid; grid-template-columns: 136px minmax(0, 1fr); gap: 12px; align-items: center"><span><span class="bdg b-g">Locked price</span></span><span>Swap freely, this price is held for you</span></div>
+<div style="display: grid; grid-template-columns: 136px minmax(0, 1fr); gap: 12px; align-items: center"><span><span class="bdg b-a">Priya will confirm</span></span><span>Depends on availability, price may shift</span></div>
+<div style="display: grid; grid-template-columns: 136px minmax(0, 1fr); gap: 12px; align-items: center"><span><span class="bdg b-n">Included</span></span><span>Flights and transfers are booked as planned</span></div>
+</div>
+<div style="display: flex; flex-direction: column; padding: 24px; border-radius: 20px; background: #FFFFFF; border: 1px solid #E4E4E2">
 <div style="display: flex; justify-content: space-between; align-items: baseline; padding-bottom: 14px">
 <span style="font-size: 18px; font-weight: 700">Your trip total</span>
 <span style="font-size: 12px; color: #5F6266">2 adults · incl. GST</span>
@@ -596,17 +607,17 @@ Add an activity · {{day.addLabel}}</button>
 </sc-if>
 
 <sc-if value="{{isSubmitted}}" hint-placeholder-val="{{ false }}">
-<div style="padding: 56px 48px 80px; display: flex; justify-content: center">
+<div style="padding: 64px 48px 80px; display: flex; justify-content: center">
 <div class="r-sub" style="width: 760px; display: flex; flex-direction: column; gap: 24px">
-<span style="width: 56px; height: 56px; border-radius: 50%; background: #EDEDEC; color: #26282B; display: flex; align-items: center; justify-content: center"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5 9-10"></path></svg></span>
+<span style="align-self: center; width: 56px; height: 56px; border-radius: 50%; background: #2F9E44; color: #FFFFFF; display: flex; align-items: center; justify-content: center"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5 9-10"></path></svg></span>
 <sc-if value="{{isAccepted}}" hint-placeholder-val="{{ false }}">
-<h1 style="margin: 0; font-family: 'Instrument Serif', Georgia, serif; font-weight: 500; font-size: 40px">You accepted the quotation</h1>
-<p style="margin: 0; font-size: 16px; line-height: 1.55; color: #3E4145">Priya will send booking and payment details for {{originalText}} within one working day.</p>
+<h1 style="margin: 0; text-align: center; font-family: 'Instrument Serif', Georgia, serif; font-weight: 400; font-size: 44px">You accepted the quotation</h1>
+<p style="margin: 0; text-align: center; font-size: 16px; line-height: 1.6; color: #3E4145">Priya will send booking and payment details for {{originalText}} within one working day.</p>
 </sc-if>
 <sc-if value="{{isRevised}}" hint-placeholder-val="{{ true }}">
-<h1 style="margin: 0; font-family: 'Instrument Serif', Georgia, serif; font-weight: 500; font-size: 40px">Your changes are with Priya</h1>
-<p style="margin: 0; font-size: 16px; line-height: 1.55; color: #3E4145">Revision v2 was sent on Tue 29 Sep at 14:05. {{nextStep}} You’ll get an email when the updated quotation is ready, usually within one working day.</p>
-<div style="display: flex; flex-direction: column; border-radius: 16px; background: #FFFFFF; border: 1px solid #E4E4E2">
+<h1 style="margin: 0; text-align: center; font-family: 'Instrument Serif', Georgia, serif; font-weight: 400; font-size: 44px">Your changes are with Priya</h1>
+<p style="margin: 0; text-align: center; font-size: 16px; line-height: 1.6; color: #3E4145">Revision v2 was sent on Tue 29 Sep at 14:05. {{nextStep}} You’ll get an email when the updated quotation is ready, usually within one working day.</p>
+<div class="r-subcard" style="display: flex; flex-direction: column; border-radius: 16px; background: #FFFFFF; border: 1px solid #E4E4E2">
 <sc-for list="{{changes}}" as="ch" hint-placeholder-count="4">
 <div style="display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 14px 20px; border-bottom: 1px solid #EBEBEA; font-size: 14px">
 <div style="display: flex; flex-direction: column; gap: 2px"><span style="color: #5F6266; font-size: 12px">{{ch.where}} · {{ch.kind}}</span><span>{{ch.railTitle}}</span></div>
@@ -620,18 +631,18 @@ Add an activity · {{day.addLabel}}</button>
 </sc-for>
 <div style="display: flex; justify-content: space-between; align-items: baseline; padding: 18px 20px">
 <span style="font-size: 14px; color: #5F6266">{{estLabel}} (was {{originalText}})</span>
-<span style="font-family: 'Instrument Serif', Georgia, serif; font-size: 28px; font-weight: 500">{{estText}}</span>
+<span style="font-family: 'Instrument Serif', Georgia, serif; font-size: 28px; font-weight: 400">{{estText}}</span>
 </div>
 </div>
 <sc-if value="{{hasNote}}" hint-placeholder-val="{{ true }}">
-<div style="display: flex; flex-direction: column; gap: 6px; padding: 16px 20px; border-radius: 12px; background: #FAFAF9; border: 1px solid #E4E4E2">
+<div style="display: flex; flex-direction: column; gap: 6px; padding: 16px 20px; border-radius: 16px; background: #FAFAF9; border: 1px solid #E4E4E2">
 <span style="font-size: 12px; color: #5F6266; font-weight: 600">Your note</span>
 <span style="font-size: 14px; line-height: 1.5">{{note}}</span>
 </div>
 </sc-if>
 </sc-if>
-<p style="margin: 0; font-size: 14px; color: #5F6266">This quotation is locked while Priya reviews it. To change anything else, reply to her email.</p>
-<div><button class="lnk" type="button" onClick="{{reset}}" style="padding-left: 0">Restart prototype</button></div>
+<p style="margin: 0; text-align: center; font-size: 14px; color: #5F6266">This quotation is locked while Priya reviews it. To change anything else, reply to her email.</p>
+<div style="display: flex; justify-content: center"><button class="lnk" type="button" onClick="{{reset}}">Restart prototype</button></div>
 </div>
 </div>
 </sc-if>
@@ -652,10 +663,10 @@ Add an activity · {{day.addLabel}}</button>
 <sc-if value="{{hasDrawer}}" hint-placeholder-val="{{ false }}">
 <button type="button" aria-label="Close panel" onClick="{{closeDrawer}}" style="position: absolute; inset: 0; border: none; padding: 0; margin: 0; background: rgba(28, 34, 32, 0.4); cursor: pointer"></button>
 <div class="r-drawer" role="dialog" aria-modal="true" aria-label="{{drawerTitle}}" style="position: absolute; top: 0; right: 0; bottom: 0; width: 640px; display: flex; flex-direction: column; background: #F4F4F3; box-shadow: -12px 0 40px rgba(28, 34, 32, 0.18)">
-<div style="display: flex; flex-direction: column; gap: 16px; padding: 26px 32px 18px; border-bottom: 1px solid #E4E4E2; background: #FAFAF9">
+<div class="r-dpad" style="display: flex; flex-direction: column; gap: 16px; padding: 26px 32px 18px; border-bottom: 1px solid #E4E4E2; background: #FAFAF9">
 <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 16px">
 <div style="display: flex; flex-direction: column; gap: 6px">
-<h2 style="margin: 0; font-family: 'Instrument Serif', Georgia, serif; font-weight: 500; font-size: 28px">{{drawerTitle}}</h2>
+<h2 style="margin: 0; font-family: 'Instrument Serif', Georgia, serif; font-weight: 400; font-size: 28px">{{drawerTitle}}</h2>
 <span style="font-size: 14px; color: #5F6266">{{drawerSub}}</span>
 </div>
 <button class="btn" type="button" onClick="{{closeDrawer}}" aria-label="Close" style="width: 44px; padding: 0">
@@ -683,7 +694,7 @@ Add an activity · {{day.addLabel}}</button>
 </sc-if>
 </sc-if>
 </div>
-<div style="flex-grow: 1; overflow-y: auto; padding: 24px 32px; display: flex; flex-direction: column; gap: 20px">
+<div class="r-dpad" style="flex-grow: 1; overflow-y: auto; padding: 24px 32px; display: flex; flex-direction: column; gap: 20px">
 
 <sc-if value="{{isHotelDrawer}}" hint-placeholder-val="{{ false }}">
 <sc-for list="{{hotelOptions}}" as="o" hint-placeholder-count="3">
@@ -694,7 +705,7 @@ Add an activity · {{day.addLabel}}</button>
 <sc-if value="{{o.isOriginal}}" hint-placeholder-val="{{ false }}"><span style="font-size: 12px; font-weight: 600; padding: 5px 10px; border-radius: 999px; background: rgba(255, 255, 255, 0.92); color: #1E1F21">In your quotation</span></sc-if>
 <sc-if value="{{o.selected}}" hint-placeholder-val="{{ false }}"><span style="font-size: 12px; font-weight: 600; padding: 5px 10px; border-radius: 999px; background: #26282B; color: #FFFFFF">Selected</span></sc-if>
 </div>
-<button type="button" onClick="{{o.next}}" aria-label="{{o.nextLabel}}" style="position: absolute; right: 12px; top: 50%; transform: translateY(-50%); width: 40px; height: 40px; border-radius: 50%; border: none; background: rgba(255, 255, 255, 0.9); color: #1E1F21; cursor: pointer; display: flex; align-items: center; justify-content: center"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 6 6 6-6 6"></path></svg></button>
+<sc-if value="{{o.hasMore}}" hint-placeholder-val="{{ true }}"><button type="button" onClick="{{o.next}}" aria-label="{{o.nextLabel}}" style="position: absolute; right: 12px; top: 50%; transform: translateY(-50%); width: 40px; height: 40px; border-radius: 50%; border: none; background: rgba(255, 255, 255, 0.9); color: #1E1F21; cursor: pointer; display: flex; align-items: center; justify-content: center"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 6 6 6-6 6"></path></svg></button></sc-if>
 <div style="position: absolute; bottom: 8px; left: 0; right: 0; display: flex; justify-content: center; gap: 2px">
 <sc-for list="{{o.dots}}" as="dt" hint-placeholder-count="3">
 <button class="dot" type="button" onClick="{{dt.pick}}" aria-label="{{dt.label}}"><span style="{{dt.style}}"></span></button>
@@ -713,7 +724,7 @@ Add an activity · {{day.addLabel}}</button>
 <sc-if value="{{o.isAgent}}" hint-placeholder-val="{{ false }}"><span class="bdg b-a">Priya will confirm · {{o.agentWhy}}</span></sc-if>
 <sc-if value="{{o.isInstant}}" hint-placeholder-val="{{ false }}"><span class="bdg b-g">Locked price</span></sc-if>
 </div>
-<div style="display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 14px; align-items: end">
+<div class="r-dhotel-row" style="display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 14px; align-items: end">
 <div style="display: flex; flex-direction: column; gap: 6px">
 <label for="{{o.selectId}}" style="font-size: 13px; font-weight: 600">Room type</label>
 <select id="{{o.selectId}}" value="{{o.roomId}}" onChange="{{o.onRoom}}" style="font: inherit; font-size: 14px; height: 44px; padding: 0 12px; border-radius: 12px; border: 1px solid #CFCFCD; background: #FFFFFF; color: #1E1F21">
@@ -743,23 +754,27 @@ Add an activity · {{day.addLabel}}</button>
 
 <sc-if value="{{isActsDrawer}}" hint-placeholder-val="{{ false }}">
 <sc-for list="{{actOptions}}" as="o" hint-placeholder-count="3">
-<div style="{{o.cardStyle}}">
-<div style="display: flex; justify-content: space-between; gap: 16px">
-<div style="display: flex; flex-direction: column; gap: 4px">
-<span style="font-size: 12px; color: #5F6266; font-weight: 600">{{o.time}}</span>
-<span style="font-size: 17px; font-weight: 600">{{o.name}}</span>
+<article style="{{o.cardStyle}}">
+<div style="position: relative; height: 220px; border-radius: 18px; overflow: hidden; background: #E4E4E2">
+<img src="{{o.img}}" alt="{{o.imgAlt}}" style="width: 100%; height: 100%; object-fit: cover; display: block">
+<sc-if value="{{o.isIncluded}}" hint-placeholder-val="{{ false }}"><span style="position: absolute; top: 12px; left: 12px; font-size: 12px; font-weight: 600; padding: 5px 10px; border-radius: 999px; background: rgba(255, 255, 255, 0.92); color: #1E1F21">In your quotation</span></sc-if>
+<sc-if value="{{o.hasMore}}" hint-placeholder-val="{{ false }}"><button type="button" onClick="{{o.next}}" aria-label="{{o.nextLabel}}" style="position: absolute; right: 12px; top: 50%; transform: translateY(-50%); width: 40px; height: 40px; border-radius: 50%; border: none; background: rgba(255, 255, 255, 0.9); color: #1E1F21; cursor: pointer; display: flex; align-items: center; justify-content: center"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 6 6 6-6 6"></path></svg></button></sc-if>
 </div>
-<div style="display: flex; flex-direction: column; align-items: flex-end; gap: 4px">
-<span style="font-size: 17px; font-weight: 600">{{o.priceText}}</span>
-<span style="font-size: 12px; color: #5F6266">{{o.priceSub}}</span>
+<div style="display: flex; flex-direction: column; gap: 10px; padding: 2px 6px 6px">
+<div style="display: flex; justify-content: space-between; align-items: baseline; gap: 16px">
+<span style="font-size: 13px; color: #5F6266; font-weight: 600">{{o.time}}</span>
+<span style="font-size: 18px; font-weight: 700">{{o.priceText}}</span>
 </div>
+<div style="display: flex; justify-content: space-between; align-items: baseline; gap: 16px; margin-top: -6px">
+<span style="font-size: 18px; font-weight: 700">{{o.name}}</span>
+<span style="font-size: 12px; color: #5F6266; white-space: nowrap">{{o.priceSub}}</span>
 </div>
-<p style="margin: 0; font-size: 14px; line-height: 1.5; color: #3E4145">{{o.note}}</p>
+<p style="margin: 0; font-size: 14px; line-height: 1.5; color: #5F6266">{{o.note}}</p>
 <sc-if value="{{o.clash}}" hint-placeholder-val="{{ false }}">
 <div role="alert" style="padding: 10px 12px; border-radius: 10px; background: #FBE4E1; color: #7C1A12; font-size: 13px">{{o.clashText}}</div>
 </sc-if>
-<div style="display: flex; justify-content: space-between; align-items: center">
-<div style="display: flex; gap: 6px">
+<div style="display: flex; justify-content: space-between; align-items: center; gap: 12px">
+<div style="display: flex; gap: 6px; flex-wrap: wrap">
 <sc-if value="{{o.isIncluded}}" hint-placeholder-val="{{ false }}"><span class="bdg b-n">In your quotation</span></sc-if>
 <sc-if value="{{o.isAgent}}" hint-placeholder-val="{{ false }}"><span class="bdg b-a">Priya will confirm · few spots</span></sc-if>
 <sc-if value="{{o.isInstant}}" hint-placeholder-val="{{ false }}"><span class="bdg b-g">Locked price</span></sc-if>
@@ -767,13 +782,14 @@ Add an activity · {{day.addLabel}}</button>
 <button class="{{o.btnClass}}" type="button" onClick="{{o.toggle}}">{{o.btnLabel}}</button>
 </div>
 </div>
+</article>
 </sc-for>
 </sc-if>
 </div>
-<div style="display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 18px 32px; border-top: 1px solid #E4E4E2; background: #FFFFFF">
+<div class="r-dpad" style="display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 18px 32px; border-top: 1px solid #E4E4E2; background: #FFFFFF">
 <div style="display: flex; flex-direction: column; gap: 2px">
 <span style="font-size: 12px; color: #5F6266">{{estLabel}}</span>
-<div style="display: flex; align-items: baseline; gap: 8px"><span style="font-family: 'Instrument Serif', Georgia, serif; font-size: 26px; font-weight: 500">{{estText}}</span><span style="font-size: 14px; font-weight: 600; color: #3E4145">{{diffText}}</span></div>
+<div style="display: flex; align-items: baseline; gap: 8px"><span style="font-family: 'Instrument Serif', Georgia, serif; font-size: 26px; font-weight: 400">{{estText}}</span><span style="font-size: 14px; font-weight: 600; color: #3E4145">{{diffText}}</span></div>
 </div>
 <button class="btn btn-p" type="button" onClick="{{closeDrawer}}">Done</button>
 </div>
@@ -781,46 +797,50 @@ Add an activity · {{day.addLabel}}</button>
 </sc-if>
 </div>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props='{"preset":{"editor":"enum","options":["fresh","mixed","rooms","split","clash","submitted","expired"],"default":"fresh"},"startScreen":{"editor":"enum","options":["itinerary","review","submitted"],"default":"itinerary"},"startView":{"editor":"enum","options":["edit","compare"],"default":"edit"},"startFilter":{"editor":"enum","options":["all","hotels","transfers","activities"],"default":"all"},"startDrawer":{"editor":"enum","options":["none","hotel-kochi","hotel-munnar","hotel-munnar-1","acts-4"],"default":"none"},"frameHeight":{"editor":"int","min":700,"max":6000,"default":960},"frameWidth":{"editor":"int","min":360,"max":1600,"default":1440},"$preview":{"width":1440,"height":960}}'>
+<script type="text/x-dc" data-dc-script data-props='{"preset":{"editor":"enum","options":["fresh","mixed","rooms","split","clash","submitted","expired"],"default":"fresh"},"startScreen":{"editor":"enum","options":["itinerary","review","submitted"],"default":"itinerary"},"startView":{"editor":"enum","options":["edit","compare"],"default":"edit"},"startFilter":{"editor":"enum","options":["all","hotels","transfers","activities"],"default":"all"},"startDrawer":{"editor":"enum","options":["none","hotel-kochi","hotel-munnar","hotel-munnar-1","acts-4"],"default":"none"},"frameHeight":{"editor":"int","min":0,"max":6000,"default":0},"frameWidth":{"editor":"int","min":0,"max":1600,"default":0},"$preview":{"width":1440,"height":960}}'>
 class Component extends DCLogic {
   D() {
     if (this._d) return this._d;
     const IMG = {
-      cardamom: '././f9ea49f56cc3a31902b4f2fae454155f.jpg', harbour: '././cca725842eeaaea9c8196222492443d3.jpg',
-      lagoon: '././6de02235942c4e6078f5a6d6913d74a1.jpg', misty: '././77d68053f3b10558e1b4de5613b0d7b0.jpg',
-      premiumboat: '././1241bafe2f66a92a40587803ec6efd3f.jpg', spice: '././322be434e246c8cc381cbd35b7eb4eef.jpg',
-      tearidge: '././bcef602ab397a0007a31c8a15373359f.jpg', hero: '././d4def30a8409ec951e559d27ac668937.jpg',
-      houseboat: '././2cb1d8ee167a40e1c2fb9adb108cfeb7.jpg', kochi: '././fa335b2d72653b47f092f0d33aaf4d55.jpg',
-      roomBoat: '././84d55b097bb0caac33387d2fb5446d45.jpg', roomGreen: '././609bd9c9fffa58543f6cf407db1f84a1.jpg',
-      roomWarm: '././2a035d12459ccbf6b5d2e6dd81485f83.jpg', tea: '././2756316dce5d522cca254dd5a477ccee.jpg'
+      cardamom: './f9ea49f56cc3a31902b4f2fae454155f.jpg', harbour: './d7faf55304f8bb6fe91912fb117d134e.jpg',
+      lagoon: './6de02235942c4e6078f5a6d6913d74a1.jpg', misty: './77d68053f3b10558e1b4de5613b0d7b0.jpg',
+      premiumboat: './1241bafe2f66a92a40587803ec6efd3f.jpg', spice: './322be434e246c8cc381cbd35b7eb4eef.jpg',
+      tearidge: './bcef602ab397a0007a31c8a15373359f.jpg', hero: './d4def30a8409ec951e559d27ac668937.jpg',
+      houseboat: './2cb1d8ee167a40e1c2fb9adb108cfeb7.jpg', kochi: './fa335b2d72653b47f092f0d33aaf4d55.jpg',
+      roomBoat: './84d55b097bb0caac33387d2fb5446d45.jpg', roomGreen: './609bd9c9fffa58543f6cf407db1f84a1.jpg',
+      roomWarm: './2a035d12459ccbf6b5d2e6dd81485f83.jpg', tea: './2756316dce5d522cca254dd5a477ccee.jpg',
+      tahr: './b660189ca8ad5c8e96996ca7fba64b5a.jpg', sunrise: './ad6efdc86a5241d96dbbc350557a71bb.jpg',
+      pWhite: './5f74b99bea6591a4cfe846e7de173b55.jpg', pCottages: './4d71f7d7acde592f05acdf6f08d5ad87.jpg', pBoats: './a16b61ec9dfcae5f63247817e047db1b.jpg',
+      pTea: './313049fdc12aaab8c4ded6234b212195.jpg', pNets: './b37391e387703add1aae0a6a73ceaacd.jpg',
+      pMisty: './a432564bda1d85bb60fb0046110c952c.jpg', pSpice: './1be8da7f04b2f07f3b137f3e8fb1579a.jpg'
     };
     const stays = {
       kochi: { id: 'kochi', city: 'Kochi', kind: 'Hotel', unit: 'Rooms', nightDates: ['Tue 10 Nov', 'Wed 11 Nov'], checkIn: 'Tue 10 Nov', checkOut: 'Thu 12 Nov',
         original: { hotel: 'harbour', room: 'deluxe' },
         hotels: [
-          { id: 'harbour', name: 'Harbour House', stars: '4★ heritage', area: 'Fort Kochi heritage quarter', meals: 'Breakfast', mode: 'instant', desc: 'A restored colonial house a short walk from the Chinese fishing nets.', tags: ['Sea view', 'Walk to sights'], imgs: [['harbour', 'Harbour House façade with palms'], ['roomWarm', 'Deluxe room with a sea-facing window'], ['kochi', 'Fishing nets on the shore nearby']],
+          { id: 'harbour', name: 'Harbour House', stars: '4★ heritage', area: 'Fort Kochi heritage quarter', meals: 'Breakfast', mode: 'instant', desc: 'A restored colonial house a short walk from the Chinese fishing nets.', tags: ['Sea view', 'Walk to sights'], imgs: [['pCottages', 'Red-tiled cottages of Harbour House among palms'], ['pNets', 'Chinese fishing nets on the Fort Kochi shore nearby']],
             rooms: [{ id: 'deluxe', name: 'Deluxe sea-facing', perNight: 9500 }, { id: 'superior', name: 'Superior city-view', perNight: 8200 }, { id: 'suite', name: 'Heritage suite', perNight: 14000 }] },
-          { id: 'lagoon', name: 'Lagoon View Inn', stars: '3★', area: 'Willingdon Island, 10 min drive', meals: 'Breakfast', mode: 'instant', desc: 'Quiet, simple rooms facing the lagoon. Good value if you plan to be out all day.', tags: ['Best value', 'Quiet'], imgs: [['lagoon', 'Lagoon View Inn building'], ['roomGreen', 'Standard double room']],
+          { id: 'lagoon', name: 'Lagoon View Inn', stars: '3★', area: 'Willingdon Island, 10 min drive', meals: 'Breakfast', mode: 'instant', desc: 'Quiet, simple rooms facing the lagoon. Good value if you plan to be out all day.', tags: ['Best value', 'Quiet'], imgs: [['pWhite', 'White colonial-style building and garden stairs at Lagoon View Inn'], ['pNets', 'Fishing nets on the Kochi waterfront']],
             rooms: [{ id: 'standard', name: 'Standard double', perNight: 7400 }, { id: 'balcony', name: 'Deluxe with balcony', perNight: 8600 }] },
-          { id: 'spice', name: 'Spice Coast Heritage', stars: '5★ heritage', area: 'Mattancherry waterfront', meals: 'Breakfast & dinner', mode: 'agent', desc: 'A restored spice warehouse with a courtyard pool and a waterfront restaurant.', tags: ['Pool', 'Only 3 rooms left'], imgs: [['spice', 'Courtyard pool at Spice Coast Heritage'], ['roomWarm', 'Garden suite interior']],
+          { id: 'spice', name: 'Spice Coast Heritage', stars: '5★ heritage', area: 'Mattancherry waterfront', meals: 'Breakfast & dinner', mode: 'agent', desc: 'A restored spice warehouse with a courtyard pool and a waterfront restaurant.', tags: ['Pool', 'Only 3 rooms left'], imgs: [['pSpice', 'Spice market in Mattancherry, steps from Spice Coast Heritage']],
             rooms: [{ id: 'garden', name: 'Garden suite', perNight: 13200 }, { id: 'villa', name: 'Pool villa', perNight: 18500 }] }
         ] },
       munnar: { id: 'munnar', city: 'Munnar', kind: 'Hotel', unit: 'Rooms', nightDates: ['Thu 12 Nov', 'Fri 13 Nov'], checkIn: 'Thu 12 Nov', checkOut: 'Sat 14 Nov',
         original: { hotel: 'tearidge', room: 'valley' },
         hotels: [
-          { id: 'tearidge', name: 'Tea Ridge Resort', stars: '4★', area: 'Chithirapuram, 15 min from town', meals: 'Breakfast', mode: 'instant', desc: 'Rooms look out over working tea estates and the valley.', tags: ['Valley view', 'Spa'], imgs: [['tearidge', 'Tea Ridge Resort among the hills'], ['roomGreen', 'Valley-view room'], ['tea', 'Tea estates around the resort']],
+          { id: 'tearidge', name: 'Tea Ridge Resort', stars: '4★', area: 'Chithirapuram, 15 min from town', meals: 'Breakfast', mode: 'instant', desc: 'Rooms look out over working tea estates and the valley.', tags: ['Valley view', 'Spa'], imgs: [['pTea', 'Tea estates and hills around Tea Ridge Resort']],
             rooms: [{ id: 'valley', name: 'Valley-view room', perNight: 11000 }, { id: 'garden', name: 'Garden room', perNight: 9000 }, { id: 'suite', name: 'Premium suite', perNight: 15500 }] },
           { id: 'cardamom', name: 'Cardamom Court', stars: '3★', area: 'Munnar town', meals: 'Breakfast', mode: 'instant', desc: 'Simple, well-kept rooms in town, close to cafés and the market.', tags: ['Best value', 'In town'], imgs: [['cardamom', 'Cardamom Court in Munnar town'], ['roomWarm', 'Standard room']],
             rooms: [{ id: 'standard', name: 'Standard room', perNight: 8100 }, { id: 'family', name: 'Family room', perNight: 10400 }] },
-          { id: 'misty', name: 'Misty Hills Plantation Bungalow', stars: 'Boutique', area: 'Pothamedu, on a cardamom estate', meals: 'Breakfast & dinner', mode: 'agent', desc: 'Six cottages on a working cardamom estate, with a guided plantation walk each morning.', tags: ['Top pick', 'Only 2 cottages left'], imgs: [['misty', 'Cottage in the misty hills'], ['roomGreen', 'Private cottage interior'], ['tea', 'Hills around the estate']],
+          { id: 'misty', name: 'Misty Hills Plantation Bungalow', stars: 'Boutique', area: 'Pothamedu, on a cardamom estate', meals: 'Breakfast & dinner', mode: 'agent', desc: 'Six cottages on a working cardamom estate, with a guided plantation walk each morning.', tags: ['Top pick', 'Only 2 cottages left'], imgs: [['pMisty', 'Misty tea hills at dawn around the plantation bungalow']],
             rooms: [{ id: 'cottage', name: 'Private cottage', perNight: 16800 }, { id: 'twobed', name: 'Two-bedroom cottage', perNight: 24000 }] }
         ] },
       alleppey: { id: 'alleppey', city: 'Alleppey', kind: 'Houseboat', unit: 'Boats', nightDates: ['Sat 14 Nov'], checkIn: 'Sat 14 Nov', checkOut: 'Sun 15 Nov',
         original: { hotel: 'standard', room: 'one' },
         hotels: [
-          { id: 'standard', name: 'Kettuvallam houseboat', stars: 'Private boat', area: 'Vembanad Lake', meals: 'All meals', mode: 'instant', desc: 'Private boat with crew, cruising the backwaters until sunset.', tags: ['Private crew'], imgs: [['houseboat', 'Kettuvallam houseboat on the backwaters'], ['roomBoat', 'Bedroom on board']],
+          { id: 'standard', name: 'Kettuvallam houseboat', stars: 'Private boat', area: 'Vembanad Lake', meals: 'All meals', mode: 'instant', desc: 'Private boat with crew, cruising the backwaters until sunset.', tags: ['Private crew'], imgs: [['pBoats', 'Kettuvallam houseboats moored on the palm-lined backwaters']],
             rooms: [{ id: 'one', name: '1-bedroom boat', perNight: 12500 }, { id: 'two', name: '2-bedroom boat', perNight: 18000 }] },
-          { id: 'premium', name: 'Premium houseboat', stars: 'Premium', area: 'Vembanad Lake', meals: 'All meals', mode: 'instant', desc: 'Larger boat with an open upper deck and all-day air-conditioning.', tags: ['Upper deck', 'Sunset cruise'], imgs: [['premiumboat', 'Premium houseboat at sunset'], ['roomBoat', 'Bedroom on board']],
+          { id: 'premium', name: 'Premium houseboat', stars: 'Premium', area: 'Vembanad Lake', meals: 'All meals', mode: 'instant', desc: 'Larger boat with an open upper deck and all-day air-conditioning.', tags: ['Upper deck', 'Sunset cruise'], imgs: [['pBoats', 'Houseboats on Vembanad Lake at dusk']],
             rooms: [{ id: 'one', name: '1-bedroom boat', perNight: 19000 }, { id: 'two', name: '2-bedroom boat', perNight: 26000 }] }
         ] }
     };
@@ -838,6 +858,18 @@ class Component extends DCLogic {
       { id: 'spice', day: 4, name: 'Spice plantation walk', time: '15:00–17:00', start: 15, end: 17, price: 1800, included: false, mode: 'instant', note: 'Cardamom, pepper and clove on a family-run estate.' },
       { id: 'canoe', day: 5, name: 'Village canoe ride', time: '16:00–18:00', start: 16, end: 18, price: 2200, included: false, mode: 'instant', note: 'Narrow canals the houseboat can’t reach.' }
     ];
+    const ACTIMG = {
+      kathakali: [['pNets', 'Fort Kochi shore, a short walk from the Kathakali theatre']],
+      heritage: [['pSpice', 'Spice sacks in a Jew Town market stall'], ['pNets', 'Chinese fishing nets on the Fort Kochi shore']],
+      cooking: [['pSpice', 'Chillies, lentils and spices at a Kochi market stall']],
+      kayak: [['pBoats', 'Calm backwaters lined with palms']],
+      teamuseum: [['pTea', 'Tea estates on the Munnar hillside']],
+      eravikulam: [['tahr', 'Nilgiri tahr on the rocks at Eravikulam National Park'], ['pTea', 'Green hills around Munnar']],
+      trek: [['sunrise', 'Sunrise over the clouds from Kolukkumalai']],
+      spice: [['pMisty', 'Plantation hills near Munnar in morning mist']],
+      canoe: [['pBoats', 'Palm-lined waters of the Alleppey backwaters']]
+    };
+    acts.forEach((a) => { a.imgs = (ACTIMG[a.id] || [['hero', 'Kerala backwaters']]).map((x) => ({ src: IMG[x[0]], alt: x[1] })); });
     const days = [
       { n: 1, date: 'Tue 10 Nov', title: 'Arrive and settle in', city: 'Kochi' },
       { n: 2, date: 'Wed 11 Nov', title: 'Old Fort Kochi', city: 'Kochi' },
@@ -873,12 +905,12 @@ class Component extends DCLogic {
       'departure-2': { fromCode: 'COK', fromCity: 'Kochi', toCode: 'BLR', toCity: 'Bengaluru', dep: '14:20', arr: '15:30', ref: '6E 615', dur: '1h 10m', chips: [['airline', 'IndiGo'], ['flight code', '6E 615'], ['class', 'Economy']] }
     };
     segs.forEach((g) => { if (g.legs) g.legs.forEach((l, i) => { l.x = LX[g.id + '-' + i]; }); });
-    const HEAD = { kochi: [IMG.kochi, 'Chinese fishing nets on the Kochi shore at sunset'], munnar: [IMG.tea, 'Tea hills around Munnar in morning mist'], alleppey: [IMG.houseboat, 'Houseboat on the Alleppey backwaters'] };
+    const HEAD = { kochi: [IMG.pNets, 'Chinese fishing nets on the Fort Kochi shore'], munnar: [IMG.pTea, 'Tea estates and hills around Munnar'], alleppey: [IMG.pBoats, 'Houseboats on the palm-lined Alleppey backwaters'] };
     const HERO = [
-      { src: IMG.hero, alt: 'Palm-lined Kerala backwaters at dusk with a houseboat', dark: true },
-      { src: IMG.tea, alt: 'Layered tea hills around Munnar in morning mist', dark: true },
-      { src: IMG.kochi, alt: 'Chinese fishing nets on the Kochi shore at sunset', dark: false },
-      { src: IMG.houseboat, alt: 'Houseboat on the palm-lined Alleppey backwaters', dark: true }
+      { src: IMG.pBoats, alt: 'Houseboats on the palm-lined Kerala backwaters', dark: true },
+      { src: IMG.pTea, alt: 'Tea estates and hills around Munnar', dark: true },
+      { src: IMG.sunrise, alt: 'Sunrise above the clouds from a hilltop near Munnar', dark: true },
+      { src: IMG.pNets, alt: 'Chinese fishing nets on the Fort Kochi shore', dark: true }
     ];
     this._d = { IMG, HERO, HEAD, stays, acts, days, segs, originalTotal: 93200 };
     return this._d;
@@ -930,6 +962,8 @@ class Component extends DCLogic {
       this.setState(this.base());
     }
   }
+
+  componentWillUnmount() { if (this._ro) this._ro.disconnect(); }
 
   go(screen) {
     this.setState({ screen: screen, drawer: null });
@@ -1088,7 +1122,7 @@ class Component extends DCLogic {
       deltaText: delta === null || status === 'same' || status === 'note' ? '' : sd(delta),
       rowStyle: 'display: grid; grid-template-columns: 150px minmax(0, 1fr) minmax(0, 1fr) 110px; gap: 16px; padding: 14px 20px; align-items: center; font-size: 14px; line-height: 1.45; border-top: 1px solid #EBEBEA; background: ' + (status === 'same' ? '#FFFFFF' : status === 'note' ? '#F7F7F6' : '#F5F5F4'),
       origStyle: status === 'same' || status === 'added' || status === 'note' ? 'color: #3E4145' : 'color: #5F6266; text-decoration: line-through',
-      revStyle: status === 'same' ? 'color: #3E4145' : 'font-weight: 600; color: #1E1F21',
+      revStyle: 'white-space: pre-line; ' + (status === 'same' ? 'color: #3E4145' : status === 'removed' ? 'color: #5F6266' : 'font-weight: 600; color: #1E1F21'),
       tagStyle: 'align-self: flex-start; font-size: 11px; font-weight: 600; border-radius: 999px; padding: 2px 8px; ' + (status === 'removed' ? 'background: #EBEBEA; color: #45484C' : status === 'added' ? 'background: #EDEDEC; color: #26282B' : status === 'note' ? 'background: #EDEDEC; color: #3E4145' : 'background: #26282B; color: #FFFFFF')
     });
     const modeFlags = (m) => ({ isFlight: m === 'flight', isTrain: m === 'train', isCar: m === 'car', isBoat: m === 'boat' });
@@ -1115,16 +1149,16 @@ class Component extends DCLogic {
             onNote: (e) => self.setMap('notes', key, e.target.value || undefined)
           });
         });
-        const rows = showCat('transfers') ? g.legs.map((l, li) => {
+        const rows = g.legs.map((l, li) => {
           const txt = s.notes[g.id + '-' + li];
-          return cmpRow(MODE[l.mode] + ' · ' + l.time, l.name, txt ? l.name + ' — note: “' + txt + '”' : l.name, txt ? 'note' : 'same', null);
-        }) : [];
+          return cmpRow(MODE[l.mode] + ' · ' + l.time, l.name, txt ? l.name + '\nNote: “' + txt + '”' : l.name, txt ? 'note' : 'same', null);
+        });
         return {
           isMove: true, isCity: false, visible: showCat('transfers'), anchor: 'seg-' + g.id,
-          overline: g.overline, title: g.title, dateLine: g.dateLine, legs: legs,
+          overline: g.overline, cmpOverline: g.overline, title: g.title, dateLine: g.dateLine, legs: legs,
           cmpRows: rows, cmpVisible: rows.length > 0,
           cmpHeadStyle: 'display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 14px 20px; background: #F0F0EF',
-          cmpTitleStyle: 'font-family: Instrument Serif, Georgia, serif; font-size: 19px; font-weight: 500'
+          cmpTitleStyle: 'font-family: Instrument Serif, Georgia, serif; font-size: 19px; font-weight: 400'
         };
       }
       const st = d.stays[g.stay];
@@ -1156,7 +1190,7 @@ class Component extends DCLogic {
         };
       });
       const rows = [];
-      if (showCat('hotels')) {
+      {
         const changed = parts.some((p) => partChanged(st, p));
         const revText = parts.map((p, i) => (split ? nightRange(st, parts, i).label + ': ' : '') + hotelOf(st, p.hotel).name + ' · ' + roomOf(hotelOf(st, p.hotel), p.room).name + (p.rooms > 1 ? ' × ' + p.rooms : '')).join('  +  ');
         const total = parts.reduce((a, p) => a + partPrice(st, p), 0);
@@ -1165,11 +1199,11 @@ class Component extends DCLogic {
       const days = g.days.map((dn) => {
         const day = dayMap[dn];
         const shown = d.acts.filter((a) => a.day === dn && (a.included || s.added[a.id]));
-        if (showCat('activities')) {
+        {
           shown.forEach((a) => {
             const removed = a.included && s.removed[a.id];
             const status = !a.included ? 'added' : removed ? 'removed' : 'same';
-            rows.push(cmpRow('Day ' + dn + ' · ' + a.time, a.included ? a.name : '—', removed ? 'Removed' : a.name, status, !a.included ? a.price : removed ? -a.credit : 0));
+            rows.push(cmpRow('Day ' + dn + ' · ' + a.time, a.included ? a.name : '—', removed ? '—' : a.name, status, !a.included ? a.price : removed ? -a.credit : 0));
           });
         }
         const acts = shown.map((a) => {
@@ -1179,9 +1213,11 @@ class Component extends DCLogic {
           if (!a.included) statusText = sd(a.price);
           return {
             name: a.name, time: a.time, removed: removed, notRemoved: !removed, statusText: statusText,
+            img: a.imgs[0].src, imgAlt: a.imgs[0].alt,
+            imgStyle: 'width: 72px; height: 56px; object-fit: cover; border-radius: 10px; display: block; flex-shrink: 0; background: #E4E4E2' + (removed ? '; opacity: 0.45; filter: grayscale(1)' : ''),
             isAgent: !a.included && a.mode === 'agent', isInstantAdd: !a.included && a.mode === 'instant',
             clash: !!clashWith[a.id],
-            rowStyle: 'display: flex; align-items: center; gap: 14px; padding: 12px 16px; border-radius: 12px; ' + (removed ? 'background: transparent; border: 1px dashed #D6D6D4' : 'background: #FAFAF9; border: 1px solid ' + (clashWith[a.id] ? '#E4A59E' : '#E4E4E2')),
+            rowStyle: 'display: flex; align-items: center; gap: 14px; padding: 10px 16px 10px 10px; border-radius: 14px; ' + (removed ? 'background: transparent; border: 1px dashed #D6D6D4' : 'background: #FAFAF9; border: 1px solid ' + (clashWith[a.id] ? '#E4A59E' : '#E4E4E2')),
             nameStyle: 'font-size: 15px; ' + (removed ? 'color: #5F6266; text-decoration: line-through' : 'font-weight: 500'),
             remove: () => (a.included ? self.toggleRemove(a.id) : self.toggleAdd(a.id)),
             removeLabel: 'Remove ' + a.name,
@@ -1205,7 +1241,7 @@ class Component extends DCLogic {
         chevStyle: 'transition: transform .2s; transform: rotate(' + (s.collapsed[g.id] ? '0' : '180') + 'deg)',
         collapsedSummary: parts.map((p) => hotelOf(st, p.hotel).name).join(' + ') + ' · ' + plural(g.days.length, 'day', 'days') + ' · ' + plural(d.acts.filter((a) => g.days.indexOf(a.day) >= 0 && isActive(a)).length, 'activity', 'activities'),
         cityPrice: inr(parts.reduce((a, p) => a + partPrice(st, p), 0) + d.acts.filter((a) => g.days.indexOf(a.day) >= 0).reduce((a, x) => a + (x.included ? (s.removed[x.id] ? x.price - x.credit : x.price) : (s.added[x.id] ? x.price : 0)), 0)),
-        overline: ['First stop', 'Next stop', 'Last stop'][g.stop - 1] + ' · ' + plural(st.nightDates.length, 'night', 'nights'), title: st.city, dateLine: g.dateLine,
+        overline: ['First stop', 'Next stop', 'Last stop'][g.stop - 1] + ' · ' + plural(st.nightDates.length, 'night', 'nights'), cmpOverline: 'Stop ' + g.stop + ' · ' + plural(st.nightDates.length, 'night', 'nights'), title: st.city, dateLine: g.dateLine,
         nightsDays: plural(N, 'night', 'nights') + ' · ' + (g.days.length > 1 ? 'Days ' + g.days[0] + '–' + g.days[g.days.length - 1] : 'Day ' + g.days[0]),
         stayHeading: split ? 'Where you’ll stay · split across 2 ' + st.kind.toLowerCase() + 's' : 'Where you’ll stay',
         kindLower: st.kind.toLowerCase(),
@@ -1214,7 +1250,7 @@ class Component extends DCLogic {
         parts: partsV, showStay: showCat('hotels'), showDays: showCat('activities'), days: days,
         cmpRows: rows, cmpVisible: rows.length > 0,
         cmpHeadStyle: 'display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 16px 20px; background: #F0F0EF',
-        cmpTitleStyle: 'font-family: Instrument Serif, Georgia, serif; font-size: 24px; font-weight: 500'
+        cmpTitleStyle: 'font-family: Instrument Serif, Georgia, serif; font-size: 24px; font-weight: 400'
       };
     });
 
@@ -1297,7 +1333,8 @@ class Component extends DCLogic {
         return {
           name: h.name, stars: h.stars, area: h.area, meals: h.meals, desc: h.desc, tags: h.tags,
           img: h.imgs[idx].src, imgAlt: h.imgs[idx].alt,
-          dots: h.imgs.map((im, i) => ({
+          hasMore: h.imgs.length > 1,
+          dots: h.imgs.length < 2 ? [] : h.imgs.map((im, i) => ({
             label: 'Show photo ' + (i + 1) + ' of ' + h.imgs.length + ', ' + h.name,
             style: 'display: block; height: 6px; border-radius: 999px; background: #FFFFFF; ' + (i === idx ? 'width: 18px; opacity: 1' : 'width: 6px; opacity: 0.6'),
             pick: () => self.setMap('imgIdx', h.id, i)
@@ -1332,14 +1369,17 @@ class Component extends DCLogic {
         let btnLabel;
         if (a.included) btnLabel = active ? 'Remove' : 'Add back';
         else btnLabel = active ? 'Remove' : 'Add · ' + sd(a.price);
+        const aidx = (s.imgIdx['act-' + a.id] || 0) % a.imgs.length;
         return {
           name: a.name, time: a.time, note: a.note,
+          img: a.imgs[aidx].src, imgAlt: a.imgs[aidx].alt, hasMore: a.imgs.length > 1,
+          next: () => self.setMap('imgIdx', 'act-' + a.id, (aidx + 1) % a.imgs.length), nextLabel: 'Next photo of ' + a.name,
           priceText: a.included ? inr(a.price) : sd(a.price),
           priceSub: a.included ? (a.credit ? inr(a.credit) + ' credit if removed' : 'no credit if removed') : 'for 2 adults',
           isIncluded: a.included, isAgent: !a.included && a.mode === 'agent', isInstant: !a.included && a.mode === 'instant',
           clash: !!other, clashText: other ? 'Overlaps with ' + other.name + ' (' + other.time + '). Remove one of them.' : '',
           btnLabel: btnLabel, btnClass: active ? 'btn' : 'btn btn-p',
-          cardStyle: 'display: flex; flex-direction: column; gap: 12px; padding: 20px; border-radius: 14px; background: ' + (active ? '#FFFFFF' : '#FAFAF9') + '; border: ' + (other ? '2px solid #C0463A' : active ? '2px solid #26282B' : '1px solid #E4E4E2; margin: 1px'),
+          cardStyle: 'display: flex; flex-direction: column; gap: 12px; padding: 12px; border-radius: 26px; background: #FFFFFF; box-shadow: 0 6px 24px rgba(28, 34, 32, 0.08); border: ' + (other ? '2px solid #C0463A' : active ? '2px solid #26282B' : '2px solid transparent'),
           toggle: () => (a.included ? self.toggleRemove(a.id) : self.toggleAdd(a.id))
         };
       });
@@ -1404,19 +1444,22 @@ class Component extends DCLogic {
       rule: heroImg.dark ? 'rgba(255, 255, 255, 0.28)' : 'rgba(30, 31, 33, 0.22)',
       scrim: heroImg.dark ? 'linear-gradient(to top, rgba(18, 19, 21, 0.82) 0%, rgba(18, 19, 21, 0.35) 45%, rgba(18, 19, 21, 0.15) 100%)' : 'linear-gradient(to top, rgba(255, 255, 255, 0.88) 0%, rgba(255, 255, 255, 0.45) 50%, rgba(255, 255, 255, 0.1) 100%)',
       chipStyle: 'font-size: 12px; font-weight: 600; padding: 6px 12px; border-radius: 999px; backdrop-filter: blur(6px); ' + (heroImg.dark ? 'background: rgba(255, 255, 255, 0.16); color: #FFFFFF; border: 1px solid rgba(255, 255, 255, 0.3)' : 'background: rgba(255, 255, 255, 0.7); color: #1E1F21; border: 1px solid rgba(30, 31, 33, 0.15)'),
-      arrowStyle: 'position: absolute; top: 42%; width: 48px; height: 48px; border-radius: 50%; border: none; cursor: pointer; display: flex; align-items: center; justify-content: center; ' + (heroImg.dark ? 'background: rgba(255, 255, 255, 0.9); color: #1E1F21' : 'background: rgba(30, 31, 33, 0.85); color: #FFFFFF')
+      arrowStyle: 'position: absolute; top: 40%; width: 44px; height: 44px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; backdrop-filter: blur(6px); ' + (heroImg.dark ? 'background: rgba(255, 255, 255, 0.16); border: 1px solid rgba(255, 255, 255, 0.35); color: #FFFFFF' : 'background: rgba(30, 31, 33, 0.7); border: 1px solid rgba(30, 31, 33, 0.2); color: #FFFFFF')
     };
     const stepIdx = isReview ? 1 : s.screen === 'submitted' ? 2 : 0;
     const steps = ['Make it yours', 'Review', 'Sent to Priya'].map((label, i) => ({
       num: i < stepIdx ? '✓' : String(i + 1), label: label, notLast: i < 2,
-      circleStyle: 'width: 26px; height: 26px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 600; ' + (i === stepIdx ? 'background: #26282B; color: #FFFFFF' : i < stepIdx ? 'background: #EDEDEC; color: #26282B' : 'background: #EBEBEA; color: #5F6266'),
-      labelStyle: 'font-size: 14px; ' + (i === stepIdx ? 'font-weight: 600; color: #1E1F21' : 'color: #5F6266')
+      circleStyle: 'width: 26px; height: 26px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 600; box-sizing: border-box; ' + (i === stepIdx ? 'background: #FFFFFF; color: #1E1F21' : i < stepIdx ? 'background: #E4E4E2; color: #1E1F21' : 'background: rgba(255, 255, 255, 0.16); color: #C9CBCE; border: 1px solid rgba(255, 255, 255, 0.28)'),
+      labelStyle: 'font-size: 14px; white-space: nowrap; ' + (i === stepIdx ? 'font-weight: 600; color: #FFFFFF' : i < stepIdx ? 'color: #C9CBCE' : 'color: #A3A6AA')
     }));
 
     const diff = est - d.originalTotal;
+    const vw = Number(this.props.frameWidth) || this._vw || 1440;
     const emptyText = f === 'transfers' ? 'Transfers keep their fixed price. Add a note to any flight, train, cruise or car if you need something.' : f === 'all' ? 'You haven’t made any changes yet.' : 'No ' + f + ' have changed.';
     return {
-      gridCols: isItin ? 'minmax(0, 1fr) 380px' : 'minmax(0, 1fr)',
+      gridCols: isItin && s.itinView === 'edit' ? 'minmax(0, 1fr) 380px' : 'minmax(0, 1fr)',
+      gridClass: isItin && s.itinView === 'edit' ? 'r-grid' : '',
+      showAside: isItin && s.itinView === 'edit',
       img: d.IMG, hero: hero, heroTags: ['Backwaters', 'Tea hills', 'Heritage', 'Houseboat'],
       heroNext: () => self.setState({ heroIdx: ((s.heroIdx || 0) + 1) % d.HERO.length }),
       heroPrev: () => self.setState({ heroIdx: ((s.heroIdx || 0) + d.HERO.length - 1) % d.HERO.length }),
@@ -1424,10 +1467,20 @@ class Component extends DCLogic {
       hasPriceChange: est !== d.originalTotal, pendAbs: inr(pend),
       diffShort: diff === 0 ? '—' : sd(diff),
       frameH: this.props.frameHeight || 960,
-      frameW: Number(this.props.frameWidth) || 1440,
-      rootClass: (Number(this.props.frameWidth) || 1440) <= 600 ? 'm t' : (Number(this.props.frameWidth) || 1440) <= 1100 ? 't' : '',
+      rootW: Number(this.props.frameWidth) ? Number(this.props.frameWidth) + 'px' : '100%',
+      rootH: Number(this.props.frameHeight) ? Number(this.props.frameHeight) + 'px' : '100vh',
+      rootClass: vw <= 600 ? 'm t s' : vw <= 1100 ? 't s' : vw <= 1280 ? 's' : '',
       reviewLabelShort: hasChanges ? 'Review (' + changes.length + ')' : 'No changes yet',
-      scrollRef: (el) => { self._sc = el; },
+      scrollRef: (el) => {
+        self._sc = el;
+        if (el && !self._ro && typeof ResizeObserver !== 'undefined') {
+          self._ro = new ResizeObserver((entries) => {
+            const w = Math.round(entries[0].contentRect.width);
+            if (w && w !== self._vw) { self._vw = w; self.forceUpdate(); }
+          });
+          self._ro.observe(el);
+        }
+      },
       steps: steps,
       versionLabel: s.screen === 'submitted' && s.outcome === 'revised' ? 'v2 sent' : 'v1',
       validLabel: expired ? 'Expired' : 'Valid until',
