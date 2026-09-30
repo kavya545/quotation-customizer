@@ -304,7 +304,7 @@ a{color:#26282B}a:hover{color:#111214}
 </div>
 <span style="text-align: right; font-size: 15px; color: #5F6266">{{ln.wasText}}</span>
 <span style="{{ln.nowStyle}}">{{ln.nowText}}</span>
-<span style="{{ln.diffStyle}}">{{ln.diffText}}</span>
+<span style="display: flex; flex-direction: column; align-items: flex-end"><span style="{{ln.diffStyle}}">{{ln.diffText}}</span><span style="font-size: 12px; font-weight: 600; color: {{ln.diffColor}}">{{ln.diffWord}}</span></span>
 </div>
 </sc-for>
 </sc-for>
@@ -312,7 +312,7 @@ a{color:#26282B}a:hover{color:#111214}
 <div style="display: flex; flex-direction: column; gap: 2px"><span style="font-size: 16px; font-weight: 700">Trip total</span><span style="font-size: 13px; color: #5F6266">2 adults · incl. GST</span></div>
 <span style="text-align: right; font-size: 16px; color: #5F6266">{{originalText}}</span>
 <span style="text-align: right; font-size: 18px; font-weight: 700">{{estText}}</span>
-<span style="text-align: right; font-size: 16px; font-weight: 700">{{diffShort}}</span>
+<span style="display: flex; flex-direction: column; align-items: flex-end"><span style="text-align: right; font-size: 16px; font-weight: 700; color: {{diffShortColor}}">{{diffShort}}</span><span style="font-size: 12px; font-weight: 600; color: {{diffShortColor}}">{{diffShortWord}}</span></span>
 </div>
 </div>
 
@@ -350,7 +350,7 @@ a{color:#26282B}a:hover{color:#111214}
 <div style="display: flex; flex-direction: column; gap: 2px"><span style="font-size: 12px; color: #5F6266">{{ch.where}}</span><span style="font-weight: 600">{{ch.kind}}</span><span style="color: #3E4145">{{ch.title}}</span></div>
 <span style="color: #5F6266; text-decoration: line-through">{{ch.from}}</span>
 <span style="line-height: 1.45">{{ch.to}}</span>
-<div style="display: flex; flex-direction: column; align-items: flex-end; gap: 2px"><span style="font-weight: 600">{{ch.deltaText}}</span><span style="font-size: 12px; color: #5F6266; text-align: right">{{ch.deltaNote}}</span></div>
+<div style="display: flex; flex-direction: column; align-items: flex-end; gap: 2px"><span style="font-weight: 700; color: {{ch.deltaColor}}">{{ch.deltaText}}</span><span style="font-size: 12px; font-weight: 600; color: {{ch.deltaColor}}">{{ch.deltaWord}}</span><span style="font-size: 12px; color: #5F6266; text-align: right">{{ch.deltaNote}}</span></div>
 <div style="display: flex; flex-direction: column; gap: 4px; align-items: flex-start">
 <sc-if value="{{ch.isAgent}}" hint-placeholder-val="{{ false }}"><span class="bdg b-a">Priya will confirm</span></sc-if>
 <sc-if value="{{ch.isInstant}}" hint-placeholder-val="{{ true }}"><span class="bdg b-g">Locked price</span></sc-if>
@@ -387,7 +387,7 @@ a{color:#26282B}a:hover{color:#111214}
 </div>
 <span style="{{r.origStyle}}">{{r.orig}}</span>
 <span style="{{r.revStyle}}">{{r.rev}}</span>
-<span style="text-align: right; font-weight: 600">{{r.deltaText}}</span>
+<span style="display: flex; flex-direction: column; align-items: flex-end; text-align: right"><span style="font-weight: 700; color: {{r.deltaColor}}">{{r.deltaText}}</span><span style="font-size: 12px; font-weight: 600; color: {{r.deltaColor}}">{{r.deltaWord}}</span></span>
 </div>
 </sc-for>
 </section>
@@ -503,7 +503,7 @@ a{color:#26282B}a:hover{color:#111214}
 <sc-if value="{{p.changed}}" hint-placeholder-val="{{ false }}">
 <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap">
 <span style="font-size: 13px; color: #5F6266; text-decoration: line-through">{{p.fromText}}</span>
-<span style="font-size: 13px; font-weight: 600">{{p.deltaText}}</span>
+<span style="font-size: 13px; font-weight: 700; color: {{p.deltaColor}}">{{p.deltaText}} <span style="font-weight: 600">{{p.deltaWord}}</span></span>
 <sc-if value="{{p.isAgent}}" hint-placeholder-val="{{ false }}"><span class="bdg b-a">Priya will confirm · {{p.agentWhy}}</span></sc-if>
 <sc-if value="{{p.isInstant}}" hint-placeholder-val="{{ false }}"><span class="bdg b-g">Locked price</span></sc-if>
 </div>
@@ -577,7 +577,7 @@ Add an activity · {{day.addLabel}}</button>
 </main>
 
 <sc-if value="{{showAside}}" hint-placeholder-val="{{ true }}">
-<aside class="r-aside" aria-label="Price summary" style="position: sticky; top: 24px; display: flex; flex-direction: column; gap: 16px">
+<aside class="r-aside" aria-label="Price summary" style="position: sticky; top: 24px; max-height: calc(100vh - 48px); overflow-y: auto; overscroll-behavior: contain; display: flex; flex-direction: column; gap: 16px">
 <div class="r-legend" role="note" aria-label="Price labels" style="display: flex; flex-direction: column; gap: 14px; padding: 18px 20px; border-radius: 20px; background: #FFFFFF; border: 1px solid #E4E4E2; font-size: 13px; color: #3E4145; line-height: 1.4">
 <div style="display: grid; grid-template-columns: 136px minmax(0, 1fr); gap: 12px; align-items: center"><span><span class="bdg b-g">Locked price</span></span><span>Swap freely, this price is held for you</span></div>
 <div style="display: grid; grid-template-columns: 136px minmax(0, 1fr); gap: 12px; align-items: center"><span><span class="bdg b-a">Priya will confirm</span></span><span>Depends on availability, price may shift</span></div>
@@ -590,43 +590,20 @@ Add an activity · {{day.addLabel}}</button>
 <span style="font-size: 18px; font-weight: 700">Your trip total</span>
 <span style="font-size: 12px; color: #5F6266">2 adults · incl. GST</span>
 </div>
-<div style="display: flex; justify-content: flex-end; padding-bottom: 6px"><button type="button" class="lnk" onClick="{{toggleAll}}" aria-pressed="{{allCollapsed}}" style="min-height: 44px; padding: 4px 0; font-size: 13px">{{toggleAllLabel}}</button></div>
-<sc-for list="{{priceSections}}" as="sec" hint-placeholder-count="4">
-<div style="display: flex; flex-direction: column; gap: 6px; padding: 2px 0 14px; border-top: 1px solid #EBEBEA">
-<button type="button" onClick="{{sec.toggle}}" aria-label="{{sec.toggleLabel}}" aria-expanded="{{sec.open}}" style="min-height: 44px; font: inherit; background: none; border: none; padding: 0; margin: 0; cursor: pointer; display: flex; align-items: center; justify-content: space-between; gap: 12px; width: 100%; text-align: left; color: inherit">
-<span style="display: flex; align-items: center; gap: 8px"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#5F6266" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="{{sec.chevStyle}}"><path d="m6 9 6 6 6-6"></path></svg><span class="lab">{{sec.title}}</span></span>
-<sc-if value="{{sec.collapsed}}" hint-placeholder-val="{{ false }}"><span style="display: flex; flex-direction: column; align-items: flex-end; gap: 1px"><span style="font-size: 14px; font-weight: 700; white-space: nowrap">{{sec.totalArrow}} {{sec.totalText}}<span class="vh"> {{sec.totalAria}}</span></span><sc-if value="{{sec.totalChanged}}" hint-placeholder-val="{{ false }}"><span style="font-size: 12px; color: #5F6266">was {{sec.totalWasText}}</span></sc-if></span></sc-if>
-</button>
-<sc-if value="{{sec.open}}" hint-placeholder-val="{{ true }}">
-<sc-for list="{{sec.lines}}" as="ln" hint-placeholder-count="2">
-<div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 16px">
-<div style="display: flex; flex-direction: column; gap: 1px; min-width: 0">
-<span style="font-size: 14px; font-weight: 600; line-height: 1.35">{{ln.label}}</span>
-<span style="font-size: 12px; color: #5F6266; line-height: 1.4">{{ln.sub}}</span>
-</div>
-<div style="display: flex; flex-direction: column; align-items: flex-end; gap: 1px; flex-shrink: 0">
-<span style="font-size: 14px; font-weight: 600; white-space: nowrap">{{ln.arrow}} {{ln.nowText}}<span class="vh"> {{ln.aria}}</span></span>
-<sc-if value="{{ln.changed}}" hint-placeholder-val="{{ false }}"><span style="font-size: 12px; color: #5F6266; white-space: nowrap">was {{ln.wasText}}</span></sc-if>
-</div>
-</div>
-</sc-for>
-</sc-if>
-</div>
-</sc-for>
-<div style="display: flex; justify-content: space-between; align-items: flex-end; gap: 16px; padding: 18px 0 4px; border-top: 2px solid #26282B">
+<div style="display: flex; justify-content: space-between; align-items: flex-end; gap: 16px; padding: 6px 0 4px">
 <div style="display: flex; flex-direction: column; gap: 2px">
-<span style="font-size: 14px; font-weight: 700">{{estLabel}}</span>
-<span style="font-size: 12px; color: #5F6266">{{estPP}} per person</span>
+<span style="font-size: 14px; font-weight: 700; white-space: nowrap">{{estLabel}}</span>
+<span style="font-size: 12px; color: #5F6266; white-space: nowrap">{{estPP}} per person</span>
 </div>
 <div style="display: flex; flex-direction: column; align-items: flex-end; gap: 2px">
-<span style="font-size: 30px; font-weight: 700; letter-spacing: -0.02em; line-height: 1">{{totArrow}} {{estText}}</span>
-<sc-if value="{{hasPriceChange}}" hint-placeholder-val="{{ false }}"><span aria-live="polite" style="font-size: 13px; color: {{totColor}}; font-weight: 600">{{totArrow}} {{totDelta}} {{totWord}}<span class="vh"> than the original</span> · <span style="color: #5F6266; font-weight: 400">was {{originalText}}</span></span></sc-if>
+<span style="font-size: 30px; font-weight: 700; letter-spacing: -0.02em; line-height: 1">{{estText}}</span>
+<sc-if value="{{hasPriceChange}}" hint-placeholder-val="{{ false }}"><span aria-live="polite" style="font-size: 12px; white-space: nowrap; color: {{totColor}}; font-weight: 600">{{totArrow}} {{totDelta}} {{totWordCap}}<span class="vh"> than the original</span> · <span style="color: #5F6266; font-weight: 400">was {{originalText}}</span></span></sc-if>
 </div>
 </div>
 <sc-if value="{{hasPending}}" hint-placeholder-val="{{ false }}">
 <span style="font-size: 12px; color: #5F6266; line-height: 1.45; padding-top: 6px">Includes {{pendAbs}} awaiting Priya’s confirmation.</span>
 </sc-if>
-<div style="display: flex; flex-direction: column; gap: 10px; padding-top: 18px">
+<div style="display: flex; flex-direction: column; gap: 10px; padding-top: 16px; padding-bottom: 18px; border-bottom: 2px solid #26282B">
 <sc-if value="{{isItinerary}}" hint-placeholder-val="{{ true }}">
 <button class="btn btn-p" type="button" onClick="{{toReview}}" disabled="{{cannotReview}}" style="width: 100%; min-height: 50px; font-size: 15px">{{reviewLabel}}</button>
 <sc-if value="{{noChanges}}" hint-placeholder-val="{{ true }}">
@@ -637,6 +614,29 @@ Add an activity · {{day.addLabel}}</button>
 <button class="btn btn-p" type="button" onClick="{{submit}}" disabled="{{cannotSubmit}}" style="width: 100%; min-height: 50px; font-size: 15px">Send to Priya</button>
 </sc-if>
 </div>
+<div style="display: flex; justify-content: flex-end; padding-bottom: 6px"><button type="button" class="lnk" onClick="{{toggleAll}}" aria-pressed="{{allCollapsed}}" style="min-height: 44px; padding: 4px 0; font-size: 13px">{{toggleAllLabel}}</button></div>
+<sc-for list="{{priceSections}}" as="sec" hint-placeholder-count="4">
+<div style="display: flex; flex-direction: column; gap: 6px; padding: 2px 0 14px; border-top: 1px solid #EBEBEA">
+<button type="button" onClick="{{sec.toggle}}" aria-label="{{sec.toggleLabel}}" aria-expanded="{{sec.open}}" style="min-height: 44px; font: inherit; background: none; border: none; padding: 0; margin: 0; cursor: pointer; display: flex; align-items: center; justify-content: space-between; gap: 12px; width: 100%; text-align: left; color: inherit">
+<span style="display: flex; align-items: center; gap: 8px"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#5F6266" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="{{sec.chevStyle}}"><path d="m6 9 6 6 6-6"></path></svg><span class="lab">{{sec.title}}</span></span>
+<sc-if value="{{sec.collapsed}}" hint-placeholder-val="{{ false }}"><span style="display: flex; flex-direction: column; align-items: flex-end; gap: 1px"><span style="font-size: 14px; font-weight: 700; white-space: nowrap">{{sec.totalText}}</span><sc-if value="{{sec.totalChanged}}" hint-placeholder-val="{{ false }}"><span style="font-size: 12px; color: #5F6266; white-space: nowrap"><span style="font-weight: 700; color: {{sec.totalColor}}">{{sec.totalArrow}} {{sec.totalWord}}</span> · was {{sec.totalWasText}}</span></sc-if></span></sc-if>
+</button>
+<sc-if value="{{sec.open}}" hint-placeholder-val="{{ true }}">
+<sc-for list="{{sec.lines}}" as="ln" hint-placeholder-count="2">
+<div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 16px">
+<div style="display: flex; flex-direction: column; gap: 1px; min-width: 0">
+<span style="font-size: 14px; font-weight: 600; line-height: 1.35">{{ln.label}}</span>
+<span style="font-size: 12px; color: #5F6266; line-height: 1.4">{{ln.sub}}</span>
+</div>
+<div style="display: flex; flex-direction: column; align-items: flex-end; gap: 1px; flex-shrink: 0">
+<span style="font-size: 14px; font-weight: 600; white-space: nowrap">{{ln.nowText}}</span>
+<sc-if value="{{ln.changed}}" hint-placeholder-val="{{ false }}"><span style="font-size: 12px; color: #5F6266; white-space: nowrap"><span style="font-weight: 700; color: {{ln.color}}">{{ln.arrow}} {{ln.word}}</span> · was {{ln.wasText}}</span></sc-if>
+</div>
+</div>
+</sc-for>
+</sc-if>
+</div>
+</sc-for>
 </div>
 </aside>
 </sc-if>
@@ -663,7 +663,7 @@ Add an activity · {{day.addLabel}}</button>
 <sc-if value="{{ch.isAgent}}" hint-placeholder-val="{{ false }}"><span class="bdg b-a">Awaiting confirmation</span></sc-if>
 <sc-if value="{{ch.isInstant}}" hint-placeholder-val="{{ true }}"><span class="bdg b-g">Locked price</span></sc-if>
 <sc-if value="{{ch.isNote}}" hint-placeholder-val="{{ false }}"><span class="bdg b-b">Note sent</span></sc-if>
-<span style="font-weight: 600; min-width: 80px; text-align: right">{{ch.deltaText}}</span>
+<span style="display: flex; flex-direction: column; align-items: flex-end; min-width: 80px; text-align: right"><span style="font-weight: 700; color: {{ch.deltaColor}}">{{ch.deltaText}}</span><span style="font-size: 12px; font-weight: 600; color: {{ch.deltaColor}}">{{ch.deltaWord}}</span></span>
 </div>
 </div>
 </sc-for>
@@ -801,11 +801,11 @@ Add an activity · {{day.addLabel}}</button>
 <div style="display: flex; flex-direction: column; gap: 10px; padding: 2px 6px 6px">
 <div style="display: flex; justify-content: space-between; align-items: baseline; gap: 16px">
 <span style="font-size: 13px; color: #5F6266; font-weight: 600">{{o.time}}</span>
-<span style="font-size: 18px; font-weight: 700">{{o.priceText}}</span>
+<span style="font-size: 18px; font-weight: 700; color: {{o.priceColor}}">{{o.priceText}}</span>
 </div>
 <div style="display: flex; justify-content: space-between; align-items: baseline; gap: 16px; margin-top: -6px">
 <span style="font-size: 18px; font-weight: 700">{{o.name}}</span>
-<span style="font-size: 12px; color: #5F6266; white-space: nowrap">{{o.priceSub}}</span>
+<span style="font-size: 12px; color: #5F6266; white-space: nowrap"><span style="font-weight: 700; color: {{o.priceColor}}">{{o.priceWord}}</span> {{o.priceSub}}</span>
 </div>
 <p style="margin: 0; font-size: 14px; line-height: 1.5; color: #5F6266">{{o.note}}</p>
 <sc-if value="{{o.clash}}" hint-placeholder-val="{{ false }}">
@@ -827,7 +827,7 @@ Add an activity · {{day.addLabel}}</button>
 <div class="r-dpad" style="display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 18px 32px; border-top: 1px solid #E4E4E2; background: #FFFFFF">
 <div style="display: flex; flex-direction: column; gap: 2px">
 <span style="font-size: 12px; color: #5F6266">{{estLabel}}</span>
-<div style="display: flex; align-items: baseline; gap: 8px"><span style="font-family: 'Instrument Serif', Georgia, serif; font-size: 26px; font-weight: 400">{{estText}}</span><span style="font-size: 14px; font-weight: 600; color: #3E4145">{{diffText}}</span></div>
+<div style="display: flex; align-items: baseline; gap: 8px"><span style="font-family: 'Instrument Serif', Georgia, serif; font-size: 26px; font-weight: 400">{{estText}}</span><span style="font-size: 14px; font-weight: 700; color: {{diffFootColor}}">{{diffText}}</span></div>
 </div>
 <button class="btn btn-p" type="button" onClick="{{closeDrawer}}">Done</button>
 </div>
@@ -1057,7 +1057,9 @@ class Component extends DCLogic {
     const d = this.D();
     const s = this.st();
     const inr = (n) => '₹' + Math.abs(n).toLocaleString('en-IN');
-    const sd = (n) => (n > 0 ? '+' + inr(n) : n < 0 ? '−' + inr(n) : '₹0');
+    const sd = (n) => (n > 0 ? '↑ ' + inr(n) : n < 0 ? '↓ ' + inr(n) : '₹0');
+    const dcol = (n) => (n > 0 ? '#B8433B' : n < 0 ? '#197047' : '#5F6266');
+    const dword = (n) => (n > 0 ? 'Higher' : n < 0 ? 'Lower' : '');
     const plural = (n, one, many) => n + ' ' + (n === 1 ? one : many);
     const expired = !!s.expired;
     const locked = expired || s.screen === 'submitted';
@@ -1147,7 +1149,7 @@ class Component extends DCLogic {
     const hasChanges = changes.length > 0;
 
     const changesV = changes.map((c) => Object.assign({}, c, {
-      deltaText: c.mode === 'note' ? '—' : sd(c.delta),
+      deltaText: c.mode === 'note' ? '—' : sd(c.delta), deltaColor: c.mode === 'note' ? '#5F6266' : dcol(c.delta), deltaWord: c.mode === 'note' ? '' : dword(c.delta),
       deltaNote: c.nonRef ? 'No credit: part of package price' : c.mode === 'note' ? 'Price stays fixed' : '',
       isAgent: c.mode === 'agent', isInstant: c.mode === 'instant', isNote: c.mode === 'note',
       undoLabel: c.undoText + ': ' + c.kind + ', ' + c.title
@@ -1157,7 +1159,7 @@ class Component extends DCLogic {
     const TAG = { changed: 'Changed', added: 'Added', removed: 'Removed', note: 'Note added', same: 'Unchanged' };
     const cmpRow = (label, orig, rev, status, delta) => ({
       label: label, orig: orig, rev: rev, isDiff: status !== 'same', statusText: TAG[status],
-      deltaText: delta === null || status === 'same' || status === 'note' ? '' : sd(delta),
+      deltaText: delta === null || status === 'same' || status === 'note' ? '' : sd(delta), deltaColor: delta === null ? '#5F6266' : dcol(delta), deltaWord: delta === null || status === 'same' || status === 'note' ? '' : dword(delta),
       rowStyle: 'display: grid; grid-template-columns: 150px minmax(0, 1fr) minmax(0, 1fr) 110px; gap: 16px; padding: 14px 20px; align-items: center; font-size: 14px; line-height: 1.45; border-top: 1px solid #EBEBEA; background: ' + (status === 'same' ? '#FFFFFF' : status === 'note' ? '#F7F7F6' : '#F5F5F4'),
       origStyle: status === 'same' || status === 'added' || status === 'note' ? 'color: #3E4145' : 'color: #5F6266; text-decoration: line-through',
       revStyle: 'white-space: pre-line; ' + (status === 'same' ? 'color: #3E4145' : status === 'removed' ? 'color: #5F6266' : 'font-weight: 600; color: #1E1F21'),
@@ -1220,7 +1222,7 @@ class Component extends DCLogic {
           priceText: inr(total),
           changed: changed && (partChanged(st, p) || split),
           fromText: 'Was ' + oh.name + ' · ' + or.name,
-          deltaText: sd(total - origPerNight(st) * p.nights),
+          deltaText: sd(total - origPerNight(st) * p.nights), deltaColor: dcol(total - origPerNight(st) * p.nights), deltaWord: dword(total - origPerNight(st) * p.nights),
           isAgent: !!why, isInstant: !why && partChanged(st, p), agentWhy: why,
           changeLabel: split ? 'Change ' + nr.label.toLowerCase() : 'Change ' + st.kind.toLowerCase(),
           cardStyle: 'display: flex; gap: 18px; padding: 14px; border-radius: 16px; background: #FAFAF9; border: 1px solid ' + (partChanged(st, p) ? '#9A9DA1' : '#E4E4E2'),
@@ -1379,8 +1381,8 @@ class Component extends DCLogic {
           })),
           next: () => self.setMap('imgIdx', h.id, (idx + 1) % h.imgs.length), nextLabel: 'Next photo of ' + h.name,
           isOriginal: h.id === st.original.hotel, selected: selected, notSelected: !selected,
-          pillText: diff === 0 ? inr(total) : sd(diff),
-          pillStyle: 'font-size: 13px; font-weight: 700; padding: 5px 12px; border-radius: 999px; white-space: nowrap; ' + (diff > 0 ? 'background: #26282B; color: #FFFFFF' : diff < 0 ? 'background: #EDEDEC; color: #26282B' : 'background: #EBEBEA; color: #3E4145'),
+          pillText: diff === 0 ? inr(total) : sd(diff) + ' ' + dword(diff).toLowerCase(),
+          pillStyle: 'font-size: 13px; font-weight: 700; padding: 5px 12px; border-radius: 999px; white-space: nowrap; ' + (diff > 0 ? 'background: #FDEEEC; color: #96362F' : diff < 0 ? 'background: #EAF7EF; color: #145938' : 'background: #EBEBEA; color: #3E4145'),
           isAgent: !!why, isInstant: !why, agentWhy: why,
           selectId: 'room-' + pkey, countId: 'count-' + pkey, unitLabel: st.unit,
           roomId: r.id,
@@ -1389,7 +1391,7 @@ class Component extends DCLogic {
           count: count, cannotDec: count <= 1, cannotInc: count >= 4,
           dec: () => setCount(Math.max(1, count - 1)), inc: () => setCount(Math.min(4, count + 1)),
           decLabel: 'Fewer ' + st.unit.toLowerCase(), incLabel: 'More ' + st.unit.toLowerCase(),
-          calcText: inr(r.perNight) + ' / night × ' + plural(part.nights, 'night', 'nights') + ' × ' + plural(count, st.unit.toLowerCase().slice(0, -1), st.unit.toLowerCase()) + ' = ' + inr(total) + (diff === 0 ? '' : ' (' + sd(diff) + ' vs. your quotation)'),
+          calcText: inr(r.perNight) + ' / night × ' + plural(part.nights, 'night', 'nights') + ' × ' + plural(count, st.unit.toLowerCase().slice(0, -1), st.unit.toLowerCase()) + ' = ' + inr(total) + (diff === 0 ? '' : ' (' + sd(diff) + ' ' + dword(diff).toLowerCase() + ' than your quotation)'),
           pickLabel: (split ? 'Choose for ' + nightRange(st, parts, pi).label.toLowerCase() : 'Choose this ' + st.kind.toLowerCase()),
           selectedText: split ? 'Selected for ' + nightRange(st, parts, pi).label.toLowerCase() : 'Selected · change the room above anytime',
           cardStyle: 'display: flex; flex-direction: column; gap: 12px; padding: 12px; border-radius: 26px; background: #FFFFFF; box-shadow: 0 6px 24px rgba(28, 34, 32, 0.08); ' + (selected ? 'border: 2px solid #26282B' : 'border: 2px solid transparent'),
@@ -1412,7 +1414,7 @@ class Component extends DCLogic {
           name: a.name, time: a.time, note: a.note,
           img: a.imgs[aidx].src, imgAlt: a.imgs[aidx].alt, hasMore: a.imgs.length > 1,
           next: () => self.setMap('imgIdx', 'act-' + a.id, (aidx + 1) % a.imgs.length), nextLabel: 'Next photo of ' + a.name,
-          priceText: a.included ? inr(a.price) : sd(a.price),
+          priceText: a.included ? inr(a.price) : sd(a.price), priceColor: a.included ? '#1E1F21' : dcol(a.price), priceWord: a.included ? '' : dword(a.price),
           priceSub: a.included ? (a.credit ? inr(a.credit) + ' credit if removed' : 'no credit if removed') : 'for 2 adults',
           isIncluded: a.included, isAgent: !a.included && a.mode === 'agent', isInstant: !a.included && a.mode === 'instant',
           clash: !!other, clashText: other ? 'Overlaps with ' + other.name + ' (' + other.time + '). Remove one of them.' : '',
@@ -1460,7 +1462,7 @@ class Component extends DCLogic {
       { title: 'Getting around', lines: [moveLine('kochi-munnar', 'Kochi → Munnar'), moveLine('munnar-alleppey', 'Munnar → Alleppey')] },
       { title: 'Activities', lines: ['kochi', 'munnar', 'alleppey'].map(actLine) }
     ];
-    const tone = (now, was) => now === was ? { dir: '', color: '#1E1F21', arrow: '' } : now < was ? { dir: 'down', color: '#197047', arrow: '↓' } : { dir: 'up', color: '#B8433B', arrow: '↑' };
+    const tone = (now, was) => now === was ? { dir: '', color: '#1E1F21', arrow: '', word: '' } : now < was ? { dir: 'down', color: '#197047', arrow: '↓', word: 'Lower' } : { dir: 'up', color: '#B8433B', arrow: '↑', word: 'Higher' };
     const pcol = s.pcol || {};
     const allCollapsed = sectionsRaw.every((sec, i) => pcol[i]);
     const priceSections = sectionsRaw.map((sec, i) => {
@@ -1472,23 +1474,23 @@ class Component extends DCLogic {
         toggle: () => self.setState({ pcol: Object.assign({}, pcol, { [i]: !isCol }) }),
         toggleLabel: (isCol ? 'Expand ' : 'Collapse ') + sec.title,
         chevStyle: 'flex-shrink: 0; transition: transform .15s; transform: rotate(' + (isCol ? '-90deg' : '0deg') + ')',
-        totalText: inr(tn), totalWasText: inr(tw), totalChanged: tn !== tw, totalColor: tt.color, totalArrow: tt.arrow,
+        totalText: inr(tn), totalWasText: inr(tw), totalChanged: tn !== tw, totalColor: tt.color, totalArrow: tt.arrow, totalWord: tt.word,
         totalAria: tn === tw ? '' : (tn < tw ? 'lower than before' : 'higher than before'),
-        lines: sec.lines.map((ln) => { const t = tone(ln.now, ln.was); return { label: ln.label, sub: ln.sub, nowText: inr(ln.now), wasText: inr(ln.was), changed: ln.now !== ln.was, color: t.color, arrow: t.arrow, aria: ln.now === ln.was ? '' : (ln.now < ln.was ? 'lower than before' : 'higher than before') }; })
+        lines: sec.lines.map((ln) => { const t = tone(ln.now, ln.was); return { label: ln.label, sub: ln.sub, nowText: inr(ln.now), wasText: inr(ln.was), changed: ln.now !== ln.was, color: t.color, arrow: t.arrow, word: t.word, aria: ln.now === ln.was ? '' : (ln.now < ln.was ? 'lower than before' : 'higher than before') }; })
       };
     });
     const gt = tone(est, d.originalTotal);
-    const totTone = { color: gt.color, arrow: gt.arrow, deltaText: inr(est - d.originalTotal), word: est < d.originalTotal ? 'lower' : 'higher' };
+    const totTone = { color: gt.color, arrow: gt.arrow, word: gt.word, deltaText: inr(est - d.originalTotal) };
     const cmpSections = sectionsRaw.map((sec) => ({ title: sec.title, lines: sec.lines.map((ln) => {
       const changed = ln.now !== ln.was || !!ln.mode || !!ln.detail;
       const dlt = ln.now - ln.was;
       return {
         label: ln.label, sub: ln.sub, detail: ln.detail, hasDetail: !!ln.detail,
         isAgent: ln.mode === 'agent', isInstant: ln.mode === 'instant',
-        wasText: inr(ln.was), nowText: inr(ln.now), diffText: dlt === 0 ? '—' : sd(dlt),
+        wasText: inr(ln.was), nowText: inr(ln.now), diffText: dlt === 0 ? '—' : sd(dlt), diffColor: dcol(dlt), diffWord: dword(dlt),
         rowStyle: 'display: grid; grid-template-columns: minmax(0, 1fr) 128px 128px 120px; gap: 20px; padding: 16px 24px; align-items: start; border-top: 1px solid #EBEBEA; background: ' + (changed ? '#F4F4F3' : '#FFFFFF'),
         nowStyle: 'text-align: right; font-size: 15px; ' + (ln.now !== ln.was ? 'font-weight: 700; color: #1E1F21' : 'color: #5F6266'),
-        diffStyle: 'text-align: right; font-size: 15px; ' + (dlt === 0 ? 'color: #9A9DA1' : 'font-weight: 700; color: #1E1F21')
+        diffStyle: 'text-align: right; font-size: 15px; ' + (dlt === 0 ? 'color: #9A9DA1' : 'font-weight: 700; color: ' + dcol(dlt))
       };
     }) }));
     const legNotes = [];
@@ -1519,9 +1521,9 @@ class Component extends DCLogic {
       img: d.IMG, hero: hero, heroTags: ['Backwaters', 'Tea hills', 'Heritage', 'Houseboat'],
       heroNext: () => self.setState({ heroIdx: ((s.heroIdx || 0) + 1) % d.HERO.length }),
       heroPrev: () => self.setState({ heroIdx: ((s.heroIdx || 0) + d.HERO.length - 1) % d.HERO.length }),
-      priceSections: priceSections, allCollapsed: allCollapsed, toggleAll: () => { const v = {}; sectionsRaw.forEach((x, i) => { v[i] = !allCollapsed; }); self.setState({ pcol: v }); }, toggleAllLabel: allCollapsed ? 'Expand all' : 'Collapse all', totColor: totTone.color, totArrow: totTone.arrow, totDelta: totTone.deltaText, totWord: totTone.word, cmpSections: cmpSections, legNotes: legNotes, hasLegNotes: legNotes.length > 0,
+      priceSections: priceSections, allCollapsed: allCollapsed, toggleAll: () => { const v = {}; sectionsRaw.forEach((x, i) => { v[i] = !allCollapsed; }); self.setState({ pcol: v }); }, toggleAllLabel: allCollapsed ? 'Expand all' : 'Collapse all', totColor: totTone.color, totArrow: totTone.arrow, totWordCap: totTone.word.toLowerCase(), totDelta: totTone.deltaText, totWord: totTone.word, cmpSections: cmpSections, legNotes: legNotes, hasLegNotes: legNotes.length > 0,
       hasPriceChange: est !== d.originalTotal, pendAbs: inr(pend),
-      diffShort: diff === 0 ? '—' : sd(diff),
+      diffShort: diff === 0 ? '—' : sd(diff), diffShortColor: dcol(diff), diffShortWord: dword(diff),
       frameH: this.props.frameHeight || 960,
       rootW: Number(this.props.frameWidth) ? Number(this.props.frameWidth) + 'px' : '100%',
       rootH: Number(this.props.frameHeight) ? Number(this.props.frameHeight) + 'px' : '100vh',
@@ -1559,7 +1561,7 @@ class Component extends DCLogic {
       estText: inr(est), estPP: inr(Math.round(est / 2)),
       estLabel: agentCount > 0 ? 'Estimated total' : hasChanges && diff !== 0 ? 'New total' : 'Total',
       estSub: agentCount > 0 ? 'final once Priya confirms ' + plural(agentCount, 'change', 'changes') : 'every change is at a guaranteed price',
-      diffText: diff === 0 ? 'no change' : sd(diff) + ' vs. original',
+      diffText: diff === 0 ? 'no change' : sd(diff) + ' ' + dword(diff).toLowerCase() + ' than original', diffFootColor: diff === 0 ? '#3E4145' : dcol(diff),
       hasClash: clashes.length > 0,
       clashSummary: clashes.length === 1 ? '1 time clash on Day ' + clashes[0].day + ' needs fixing before you can send your changes.' : clashes.length + ' time clashes need fixing before you can send your changes.',
       reviewLabel: hasChanges ? 'Review changes (' + changes.length + ')' : 'Make a change to review',
