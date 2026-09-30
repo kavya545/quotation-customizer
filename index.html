@@ -63,6 +63,8 @@ a{color:#26282B}a:hover{color:#111214}
 .r-brand-h{visibility:hidden}.m .r-brand-h{visibility:visible}
 .r-pad{max-width:none}
 .r-snapwrap{max-width:none !important}
+.vh{position:absolute;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+@media (prefers-reduced-motion:reduce){*{transition:none !important}}
 .r-show-m{display:none !important}
 .r-pad{margin:0 auto;box-sizing:border-box}
 .s .r-grid{grid-template-columns:minmax(0,1fr) 320px !important;gap:28px !important}
@@ -234,7 +236,7 @@ a{color:#26282B}a:hover{color:#111214}
 </nav>
 
 <sc-if value="{{isWorkspace}}" hint-placeholder-val="{{ true }}">
-<div class="r-pad" style="padding: 28px 32px 64px; display: flex; flex-direction: column; gap: 20px">
+<div class="r-pad" style="padding: 48px 32px 64px; display: flex; flex-direction: column; gap: 28px">
 
 <sc-if value="{{expired}}" hint-placeholder-val="{{ false }}">
 <div role="status" style="display: flex; flex-wrap: wrap; align-items: center; gap: 16px; padding: 16px 20px; border-radius: 12px; background: #FBE4E1; color: #7C1A12">
@@ -258,7 +260,7 @@ a{color:#26282B}a:hover{color:#111214}
 </sc-if>
 
 <div class="{{gridClass}}" style="display: grid; grid-template-columns: {{gridCols}}; gap: 24px; align-items: start">
-<main style="display: flex; flex-direction: column; gap: 20px">
+<main style="display: flex; flex-direction: column; gap: 32px">
 
 <sc-if value="{{isItinerary}}" hint-placeholder-val="{{ true }}">
 <div class="r-toolbar" style="display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap">
@@ -588,12 +590,12 @@ Add an activity · {{day.addLabel}}</button>
 <span style="font-size: 18px; font-weight: 700">Your trip total</span>
 <span style="font-size: 12px; color: #5F6266">2 adults · incl. GST</span>
 </div>
-<div style="display: flex; justify-content: flex-end; padding-bottom: 6px"><button type="button" class="lnk" onClick="{{toggleAll}}" style="min-height: 32px; padding: 4px 0; font-size: 13px">{{toggleAllLabel}}</button></div>
+<div style="display: flex; justify-content: flex-end; padding-bottom: 6px"><button type="button" class="lnk" onClick="{{toggleAll}}" aria-pressed="{{allCollapsed}}" style="min-height: 44px; padding: 4px 0; font-size: 13px">{{toggleAllLabel}}</button></div>
 <sc-for list="{{priceSections}}" as="sec" hint-placeholder-count="4">
-<div style="display: flex; flex-direction: column; gap: 10px; padding: 14px 0; border-top: 1px solid #EBEBEA">
-<button type="button" onClick="{{sec.toggle}}" aria-label="{{sec.toggleLabel}}" style="font: inherit; background: none; border: none; padding: 0; margin: 0; cursor: pointer; display: flex; align-items: center; justify-content: space-between; gap: 12px; width: 100%; text-align: left; color: inherit">
+<div style="display: flex; flex-direction: column; gap: 6px; padding: 2px 0 14px; border-top: 1px solid #EBEBEA">
+<button type="button" onClick="{{sec.toggle}}" aria-label="{{sec.toggleLabel}}" aria-expanded="{{sec.open}}" style="min-height: 44px; font: inherit; background: none; border: none; padding: 0; margin: 0; cursor: pointer; display: flex; align-items: center; justify-content: space-between; gap: 12px; width: 100%; text-align: left; color: inherit">
 <span style="display: flex; align-items: center; gap: 8px"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#5F6266" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="{{sec.chevStyle}}"><path d="m6 9 6 6 6-6"></path></svg><span class="lab">{{sec.title}}</span></span>
-<sc-if value="{{sec.collapsed}}" hint-placeholder-val="{{ false }}"><span style="display: flex; flex-direction: column; align-items: flex-end; gap: 1px"><span style="font-size: 14px; font-weight: 700; white-space: nowrap; color: {{sec.totalColor}}">{{sec.totalArrow}} {{sec.totalText}}</span><sc-if value="{{sec.totalChanged}}" hint-placeholder-val="{{ false }}"><span style="font-size: 12px; color: #5F6266">was {{sec.totalWasText}}</span></sc-if></span></sc-if>
+<sc-if value="{{sec.collapsed}}" hint-placeholder-val="{{ false }}"><span style="display: flex; flex-direction: column; align-items: flex-end; gap: 1px"><span style="font-size: 14px; font-weight: 700; white-space: nowrap">{{sec.totalArrow}} {{sec.totalText}}<span class="vh"> {{sec.totalAria}}</span></span><sc-if value="{{sec.totalChanged}}" hint-placeholder-val="{{ false }}"><span style="font-size: 12px; color: #5F6266">was {{sec.totalWasText}}</span></sc-if></span></sc-if>
 </button>
 <sc-if value="{{sec.open}}" hint-placeholder-val="{{ true }}">
 <sc-for list="{{sec.lines}}" as="ln" hint-placeholder-count="2">
@@ -603,7 +605,7 @@ Add an activity · {{day.addLabel}}</button>
 <span style="font-size: 12px; color: #5F6266; line-height: 1.4">{{ln.sub}}</span>
 </div>
 <div style="display: flex; flex-direction: column; align-items: flex-end; gap: 1px; flex-shrink: 0">
-<span style="font-size: 14px; font-weight: 600; white-space: nowrap; color: {{ln.color}}">{{ln.arrow}} {{ln.nowText}}</span>
+<span style="font-size: 14px; font-weight: 600; white-space: nowrap">{{ln.arrow}} {{ln.nowText}}<span class="vh"> {{ln.aria}}</span></span>
 <sc-if value="{{ln.changed}}" hint-placeholder-val="{{ false }}"><span style="font-size: 12px; color: #5F6266; white-space: nowrap">was {{ln.wasText}}</span></sc-if>
 </div>
 </div>
@@ -617,8 +619,8 @@ Add an activity · {{day.addLabel}}</button>
 <span style="font-size: 12px; color: #5F6266">{{estPP}} per person</span>
 </div>
 <div style="display: flex; flex-direction: column; align-items: flex-end; gap: 2px">
-<span style="font-size: 30px; font-weight: 700; letter-spacing: -0.02em; line-height: 1; color: {{totColor}}">{{totArrow}} {{estText}}</span>
-<sc-if value="{{hasPriceChange}}" hint-placeholder-val="{{ false }}"><span style="font-size: 13px; color: {{totColor}}; font-weight: 600">{{totDelta}} {{totWord}} · <span style="color: #5F6266; font-weight: 400">was {{originalText}}</span></span></sc-if>
+<span style="font-size: 30px; font-weight: 700; letter-spacing: -0.02em; line-height: 1">{{totArrow}} {{estText}}</span>
+<sc-if value="{{hasPriceChange}}" hint-placeholder-val="{{ false }}"><span aria-live="polite" style="font-size: 13px; color: {{totColor}}; font-weight: 600">{{totArrow}} {{totDelta}} {{totWord}}<span class="vh"> than the original</span> · <span style="color: #5F6266; font-weight: 400">was {{originalText}}</span></span></sc-if>
 </div>
 </div>
 <sc-if value="{{hasPending}}" hint-placeholder-val="{{ false }}">
