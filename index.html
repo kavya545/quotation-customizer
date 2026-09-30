@@ -40,15 +40,38 @@ a{color:#26282B}a:hover{color:#111214}
 .b-b{background:#EDEDEC;color:#3E4145}
 .tag{display:inline-flex;align-items:center;font-size:12px;font-weight:600;border-radius:999px;padding:5px 12px;background:#F0F0EF;color:#26282B}
 .lab{font-size:13px;color:#5F6266;font-weight:600}
+
+.r-side{position:absolute;left:0;top:0;bottom:0;width:232px;box-sizing:border-box;background:#FFFFFF;border-right:1px solid #E4E4E2;display:flex;flex-direction:column;gap:24px;padding:20px 14px;z-index:5}
+.r-scroll{position:absolute;top:0;right:0;bottom:0;left:232px;overflow-y:auto}
+.r-side-brand{display:flex;align-items:center;gap:10px;padding:4px 10px 8px}
+.r-side-brand span{font-family:'Instrument Serif',Georgia,serif;font-size:21px;font-weight:600;color:#26282B;white-space:nowrap}
+.r-side nav{display:flex;flex-direction:column;gap:2px}
+.r-side-lab{font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#8A8D91;padding:0 10px 6px}
+.r-side a{display:flex;align-items:center;gap:12px;min-height:42px;padding:0 12px;border-radius:10px;font-size:14px;font-weight:600;color:#45484C;text-decoration:none}
+.r-side a:hover{background:#F4F4F3;color:#1E1F21}
+.r-side a[aria-current="page"]{background:#26282B;color:#FFFFFF}
+.r-side a:focus-visible{outline:3px solid #9A9DA1;outline-offset:2px}
+.r-side-foot{margin-top:auto;display:flex;align-items:center;gap:10px;padding:12px 10px 0;border-top:1px solid #EDEDEC;font-size:13px;color:#5F6266}
+.r-side-foot b{display:block;color:#1E1F21;font-size:13px}
+.s .r-side{width:72px;padding:20px 10px;align-items:center}
+.s .r-side-brand span,.s .r-side-lab,.s .r-side a span,.s .r-side-foot div{display:none}
+.s .r-side-brand{padding:4px 0 8px}
+.s .r-side a{justify-content:center;padding:0;width:48px}
+.s .r-side-foot{justify-content:center;padding:12px 0 0;border-top:none}
+.s .r-scroll{left:72px}
+.m .r-side{display:none}.m .r-scroll{left:0}
+.r-brand-h{visibility:hidden}.m .r-brand-h{visibility:visible}
+.r-pad{max-width:none}
+.r-snapwrap{max-width:none !important}
 .r-show-m{display:none !important}
-.r-pad{max-width:1440px;margin:0 auto;box-sizing:border-box}
+.r-pad{margin:0 auto;box-sizing:border-box}
 .s .r-grid{grid-template-columns:minmax(0,1fr) 320px !important;gap:28px !important}
 .s .r-leg{grid-template-columns:minmax(0,1fr) minmax(56px,1fr) minmax(0,1fr) !important}
 .s .r-leg-sum{grid-column:1/-1;align-items:flex-start !important}
 .s .r-leg-sum span{text-align:left !important}
 .s .r-hero-facts{grid-template-columns:repeat(2,minmax(0,1fr)) !important;gap:12px 24px !important}
 .s .r-header,.s .r-nav,.s .r-snapwrap{padding-left:24px !important;padding-right:24px !important}
-.s .r-hero-body{left:24px !important;right:24px !important}
+.s .r-hero-body{left:64px !important;right:64px !important}
 .s .r-pad{padding-left:24px !important;padding-right:24px !important}
 .t .r-hero-row{flex-wrap:wrap}
 
@@ -113,10 +136,15 @@ a{color:#26282B}a:hover{color:#111214}
 </style>
 </helmet>
 <div class="{{rootClass}}" style="width: {{rootW}}; height: {{rootH}}; position: relative; overflow: hidden; background: #F4F4F3">
-<div ref="{{scrollRef}}" style="position: absolute; inset: 0; overflow-y: auto">
+<aside class="r-side" aria-label="Main">
+<div class="r-side-brand"><svg width="30" height="30" viewBox="0 0 32 32" fill="none" stroke="#26282B" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 22c4-8 8-8 12 0s8 8 12 0"/><path d="M4 14c4-8 8-8 12 0s8 8 12 0"/></svg><span>monsoon trails</span></div>
+<nav><div class="r-side-lab">Menu</div><a href="#" aria-label="Trips"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M3 11l18-7-7 18-2.5-7.5z"/></svg><span>Trips</span></a><a href="#" aria-current="page" aria-label="Quotes"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M6 3h9l4 4v14H6z"/><path d="M14 3v5h5M9 13h7M9 17h7"/></svg><span>Quotes</span></a><a href="#" aria-label="Saved"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.600-7 10-7 10z"/></svg><span>Saved</span></a><a href="#" aria-label="Messages"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M4 5h16v11H9l-5 4z"/></svg><span>Messages</span></a><a href="#" aria-label="Profile"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><circle cx="12" cy="8" r="4"/><path d="M4 21c1-4.500 4-6 8-6s7 1.500 8 6"/></svg><span>Profile</span></a></nav>
+<div class="r-side-foot"><div style="width:34px;height:34px;border-radius:50%;background:#E4E4E2;color:#26282B;display:flex;align-items:center;justify-content:center;font-weight:600;font-size:12px;flex-shrink:0">AR</div><div><b>Ananya</b>Q-2481 · Kerala</div></div>
+</aside>
+<div class="r-scroll" ref="{{scrollRef}}">
 
-<header class="r-header" style="display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; padding: 14px 48px; background: #FFFFFF">
-<div style="display: flex; align-items: center; gap: 10px">
+<header class="r-header" style="display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; padding: 12px 32px; background: #FFFFFF">
+<div class="r-brand-h" style="display: flex; align-items: center; gap: 10px">
 <svg width="30" height="30" viewBox="0 0 32 32" fill="none" stroke="#26282B" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 22c4-8 8-8 12 0s8 8 12 0"></path><path d="M4 14c4-8 8-8 12 0s8 8 12 0"></path></svg>
 <span style="font-family: 'Instrument Serif', Georgia, serif; font-size: 22px; font-weight: 600; color: #26282B">monsoon trails</span>
 </div>
@@ -134,12 +162,12 @@ a{color:#26282B}a:hover{color:#111214}
 </div>
 </header>
 
-<section class="r-hero" aria-label="Trip overview" style="position: relative; height: 600px; border-radius: 0 0 28px 28px; overflow: hidden; background: #26282B">
+<section class="r-hero" aria-label="Trip overview" style="position: relative; height: 480px; border-radius: 0 0 28px 28px; overflow: hidden; background: #26282B">
 <img src="{{hero.src}}" alt="{{hero.alt}}" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block">
 <div style="position: absolute; inset: 0; background: {{hero.scrim}}"></div>
 <button type="button" onClick="{{heroPrev}}" aria-label="Previous photo" class="r-hero-arrow" style="{{hero.arrowStyle}}; left: 20px"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 6-6 6 6 6"></path></svg></button>
 <button type="button" onClick="{{heroNext}}" aria-label="Next photo" class="r-hero-arrow" style="{{hero.arrowStyle}}; right: 20px"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 6 6 6-6 6"></path></svg></button>
-<div class="r-hero-body" style="position: absolute; left: 48px; right: 48px; bottom: 32px; display: flex; flex-direction: column; gap: 22px; color: {{hero.ink}}">
+<div class="r-hero-body" style="position: absolute; left: 76px; right: 76px; bottom: 28px; display: flex; flex-direction: column; gap: 22px; color: {{hero.ink}}">
 <div class="r-hero-row" style="display: flex; justify-content: space-between; align-items: flex-end; gap: 32px">
 <div style="display: flex; flex-direction: column; gap: 8px">
 <span style="font-size: 15px; font-weight: 600">Your 6-day escape to Kerala</span>
@@ -161,7 +189,7 @@ a{color:#26282B}a:hover{color:#111214}
 </div>
 </section>
 
-<div class="r-snapwrap" style="max-width: 1440px; margin: 0 auto; box-sizing: border-box; padding: 40px 48px 0">
+<div class="r-snapwrap" style="margin: 0 auto; box-sizing: border-box; padding: 24px 32px 0">
 <section class="r-snap" aria-label="Your journey at a glance" style="padding: 24px 28px 22px; border-radius: 24px; background: #FFFFFF">
 <div class="r-snap-row" style="display: flex; align-items: flex-start">
 <sc-for list="{{snap}}" as="sn" hint-placeholder-count="9">
@@ -206,7 +234,7 @@ a{color:#26282B}a:hover{color:#111214}
 </nav>
 
 <sc-if value="{{isWorkspace}}" hint-placeholder-val="{{ true }}">
-<div class="r-pad" style="padding: 48px 48px 80px; display: flex; flex-direction: column; gap: 28px">
+<div class="r-pad" style="padding: 28px 32px 64px; display: flex; flex-direction: column; gap: 20px">
 
 <sc-if value="{{expired}}" hint-placeholder-val="{{ false }}">
 <div role="status" style="display: flex; flex-wrap: wrap; align-items: center; gap: 16px; padding: 16px 20px; border-radius: 12px; background: #FBE4E1; color: #7C1A12">
@@ -229,7 +257,7 @@ a{color:#26282B}a:hover{color:#111214}
 </div>
 </sc-if>
 
-<div class="{{gridClass}}" style="display: grid; grid-template-columns: {{gridCols}}; gap: 32px; align-items: start">
+<div class="{{gridClass}}" style="display: grid; grid-template-columns: {{gridCols}}; gap: 24px; align-items: start">
 <main style="display: flex; flex-direction: column; gap: 20px">
 
 <sc-if value="{{isItinerary}}" hint-placeholder-val="{{ true }}">
