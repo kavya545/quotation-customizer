@@ -590,14 +590,14 @@ Add an activity · {{day.addLabel}}</button>
 <span style="font-size: 18px; font-weight: 700">Your trip total</span>
 <span style="font-size: 12px; color: #5F6266">2 adults · incl. GST</span>
 </div>
-<div style="display: flex; justify-content: space-between; align-items: flex-end; gap: 16px; padding: 6px 0 4px">
+<div style="display: flex; flex-direction: column; gap: 6px; padding: 6px 0 4px">
 <div style="display: flex; flex-direction: column; gap: 2px">
 <span style="font-size: 14px; font-weight: 700; white-space: nowrap">{{estLabel}}</span>
 <span style="font-size: 12px; color: #5F6266; white-space: nowrap">{{estPP}} per person</span>
 </div>
-<div style="display: flex; flex-direction: column; align-items: flex-end; gap: 2px">
-<span style="font-size: 30px; font-weight: 700; letter-spacing: -0.02em; line-height: 1">{{estText}}</span>
-<sc-if value="{{hasPriceChange}}" hint-placeholder-val="{{ false }}"><span aria-live="polite" style="font-size: 12px; white-space: nowrap; color: {{totColor}}; font-weight: 600">{{totArrow}} {{totDelta}} {{totWordCap}}<span class="vh"> than the original</span> · <span style="color: #5F6266; font-weight: 400">was {{originalText}}</span></span></sc-if>
+<div style="display: flex; flex-direction: column; align-items: flex-start; gap: 4px">
+<span style="font-size: 32px; font-weight: 700; letter-spacing: -0.02em; line-height: 1">{{estText}}</span>
+<sc-if value="{{hasPriceChange}}" hint-placeholder-val="{{ false }}"><span aria-live="polite" style="font-size: 12px; color: {{totColor}}; font-weight: 600">{{totArrow}} {{totDelta}} {{totWordCap}}<span class="vh"> than the original</span> · <span style="color: #5F6266; font-weight: 400">was {{originalText}}</span></span></sc-if>
 </div>
 </div>
 <sc-if value="{{hasPending}}" hint-placeholder-val="{{ false }}">
