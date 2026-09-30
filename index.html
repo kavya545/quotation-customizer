@@ -425,6 +425,7 @@ a{color:#26282B}a:hover{color:#111214}
 <span style="font-size: 12px; color: #5F6266">{{l.toCity}} · {{l.arrTime}}</span>
 </div>
 <div class="r-leg-sum" style="display: flex; flex-direction: column; align-items: flex-end; gap: 0">
+<span style="font-size: 16px; font-weight: 700; text-align: right">{{l.priceText}}</span>
 <span style="font-size: 13px; color: #3E4145; text-align: right">{{l.summary}}</span>
 <sc-if value="{{l.canAddNote}}" hint-placeholder-val="{{ true }}"><button class="lnk" type="button" onClick="{{l.openNote}}" disabled="{{locked}}" style="font-size: 13px; min-height: 32px; padding: 4px 0">+ Add a note</button></sc-if>
 </div>
@@ -1178,6 +1179,7 @@ class Component extends DCLogic {
             name: l.name, time: l.time, duration: l.x.dur, modeLabel: MODE[l.mode], modeLower: MODE[l.mode].toLowerCase(),
             fromCode: l.x.fromCode, fromCity: l.x.fromCity, toCode: l.x.toCode, toCity: l.x.toCity, depTime: l.x.dep, arrTime: l.x.arr, ref: l.x.ref,
             summary: l.x.chips.map((c) => c[1]).join(' · '),
+            priceText: inr(l.price),
             codeStyle: 'font-size: ' + (Math.max(l.x.fromCode.length, l.x.toCode.length) <= 4 ? 46 : 32) + 'px; font-weight: 800; letter-spacing: -0.03em; line-height: 1; color: #1E1F21',
             chips: l.x.chips.map((c, ci) => ({ k: c[0], v: c[1], style: 'font-size: 16px; font-weight: 700; padding: 10px 18px; border-radius: 16px; box-shadow: 0 4px 14px rgba(30, 31, 33, 0.08); ' + (ci === l.x.chips.length - 1 ? 'background: #EDEDEC; color: #1E1F21' : 'background: #FFFFFF; color: #1E1F21') })),
             note: txt, editing: editing, showSaved: !!txt && !editing, canAddNote: !txt && !editing,
@@ -1248,7 +1250,7 @@ class Component extends DCLogic {
         }
         const acts = shown.map((a) => {
           const removed = !!(a.included && s.removed[a.id]);
-          let statusText = 'Included';
+          let statusText = inr(a.price) + ' · Included';
           if (removed) statusText = a.credit ? 'Removed · ' + sd(-a.credit) : 'Removed · no credit';
           if (!a.included) statusText = sd(a.price);
           return {
